@@ -63,7 +63,7 @@ Path
 Font
 	Setting--Apperance&Behavior
 		Override default fonts by(not recommended) Size 16
-	Editor--Font Size 18
+	Editor--Font Size 16
 	Editor--Color Scheme--General--Text--Default Text Bold
 ```
 
