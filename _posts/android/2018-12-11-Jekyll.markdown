@@ -1,0 +1,74 @@
+---
+layout: post
+title:  "Github Pages+Jekyll"
+date:   2018-12-11 11:53:27 +0800
+categories: android
+---
+
+
+
+### 1、安装Ruby
+
+* 前往 [Ruby](http://rubyinstaller.org/downloads)下载```rubyinstaller-2.3.3-x64```
+* 安装勾选添加到path
+* 安装目录 ```D:\app\Ruby23-x64```
+* Ruby安装成功
+
+### 2、安装DevKit&Jekyll
+
+* 前往 [Ruby](http://rubyinstaller.org/downloads)拉到最下面下载```DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe```
+* 解压到 ```D:\app\DevKit```
+* 执行命令```ruby dk.rb init```修改config.yml  增加  ```- D:/app/Ruby23-x64```
+* 执行命令
+```
+ruby dk.rb review
+ruby dk.rb install
+gem -v	# 查看gem是否正常安装
+gem install jekyll bundler
+```
+* Jekyll安装成功
+	
+### 3、启动Jekyll
+
+
+```
+jekyll new myblog
+cd myblog
+bundle exec jekyll serve或jekyll serve
+```
+* 浏览器访问 http://localhost:4000/ 本地博客创建成功
+
+### 4、本地博客发布到Github Pages
+		
+* Github New Repository
+* 命名规则 ```username/username.github.com```
+* 打开设置页面拖到最下面选择主题
+* 新建的项目clone到本地文件夹 ```D:\work\blog\username.github.io```
+* 将第3步myblog文件夹下所有文件复制到```D:\work\blog\username.github.io```
+```
+git add.
+git commit -m "opz"
+git push origin master
+```
+* 浏览器访问 http://username.github.io 本地博客发布成功
+	
+	
+### 5、写博客
+	
+* D:\work\blog\username.github.io/_posts文件夹下按格式编写即可
+
+### 6、拷贝博客遇到的问题
+
+* you haven't included the `jekyll-paginate` gem. 
+
+```
+DevKit路径下安装 gem install ‘jekyll-paginate’
+Gemfile 文件增加gem 'jekyll-paginate'
+_config.yml文件增加
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+```
+
+
+
