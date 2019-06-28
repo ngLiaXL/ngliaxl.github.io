@@ -66,6 +66,31 @@ date:   2019-06-3
 ```
 
 
+```
+aaaaaaaaaaaaaaaaaaab
+aaaab
+
+i=4 j=4 
+i=i-j+1 --> 4- 4 + 1  j=0
+
+aaaaaaaaaaaaaaaaaaab
+ aaaab
+i=5 j=4 
+i=i-j+1 --> 5- 4 + 1  j=0
+
+aaaaaaaaaaaaaaaaaaab
+  aaaab
+
+ ....
+
+aaaaaaaaaaaaaaa aaaab  	m
+			    aaaab	n
+
+前面匹配都失败了 (m - n)  * n 加上最后一次匹配成功的 n
+O(m - n + 1) * n
+```
+
+
 ### KMP
 ...TODO
 
