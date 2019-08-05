@@ -23,4 +23,5 @@ Android Studio Gradle标签中找到<你的模块名>-->Tasks-->other-->DRT 双�
 
 ### 使用插件
 
+
 插件搜索`Gradle View`
