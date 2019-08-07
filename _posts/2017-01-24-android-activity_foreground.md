@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android判断App在前台、后台"
+title:  "[Android]	判断App在前台、后台"
 date:   2017-01-24 11:53:27 +0800
 categories: android
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "List多属性排序"
+title:  "[Java]	List多属性排序"
 date:   2018-07-15 11:53:27 +0800
 categories: android
 ---

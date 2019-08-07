@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "使用Intellij IDEA编译Weblogice项目"
+title:  "[Java]	使用Intellij IDEA编译Weblogice项目"
 date:   2018-01-19 11:53:27 +0800
 categories: web
 ---

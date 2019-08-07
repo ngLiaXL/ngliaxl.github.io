@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rxjava2简单封装"
+title:  "[RxJava]	Rxjava2简单封装"
 date:   2018-06-14 11:53:27 +0800
 categories: android
 ---

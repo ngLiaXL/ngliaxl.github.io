@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "screenrecord"
+title:  "[Android]	screenrecord"
 date:   2017-09-30 11:53:27 +0800
 categories: android
 ---

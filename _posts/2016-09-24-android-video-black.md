@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android视频轮播间隙黑屏问题"
+title:  "[Android]	视频轮播间隙黑屏问题"
 date:   2016-09-24 11:53:27 +0800
 categories: android
 ---

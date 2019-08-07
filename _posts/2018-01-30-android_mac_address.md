@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android获取mac地址"
+title:  "[Android]	获取mac地址"
 date:   2018-01-30 11:53:27 +0800
 categories: android
 ---

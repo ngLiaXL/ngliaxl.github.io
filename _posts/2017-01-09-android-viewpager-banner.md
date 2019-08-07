@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android ViewPager实现的图片轮播"
+title:  "[Android]	 ViewPager实现的图片轮播"
 date:   2017-01-09 11:53:27 +0800
 categories: android
 ---

@@ -1,6 +1,6 @@
 ---
 layout:	post
-title:	"Display the Dependency Tree in Android Studio"
+title:	"[Android]	Display Dependency Tree"
 date:	2019-08-05
 ---
 

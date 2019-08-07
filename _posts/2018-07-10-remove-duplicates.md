@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "List根据属性去重"
+title:  "[Java]	List根据属性去重"
 date:   2018-07-10 11:53:27 +0800
 categories: android
 ---

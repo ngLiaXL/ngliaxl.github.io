@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "adb端口占用"
+title:  "[Android]	adb端口占用"
 date:   2014-04-25 11:53:27 +0800
 categories: android
 ---

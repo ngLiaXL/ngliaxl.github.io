@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android判断应用是否在后台运行"
+title:  "[Android]	判断应用是否在后台运行"
 date:   2017-06-16 11:53:27 +0800
 categories: android
 ---

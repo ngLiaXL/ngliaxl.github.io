@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "adb设置远程调试"
+title:  "[Android]	adb设置远程调试"
 date:   2015-07-28 11:53:27 +0800
 categories: android
 ---
