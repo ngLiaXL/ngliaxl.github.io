@@ -4,6 +4,12 @@ title:  "字符串模糊匹配-朴素/KMP算法"
 date:   2019-06-3
 ---
 
+##  提取日期
+=TEXT(G4,"yyyy-mm-dd")
+
+##	组合字符串
+=CONCATENATE("insert into users (ig,client_name,project_name,project_manager,du_lead,hire_date,eid) values ('",B4,"','",C4,"','",D4,"','",E4,"','",F4,"','",TEXT(G4,"yyyy-mm-dd"),"','",H4,"');")
+
 
 ### 朴素
 有字符串AABCDEF
