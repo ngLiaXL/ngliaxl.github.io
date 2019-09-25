@@ -1,0 +1,8 @@
+I"Å<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+adb shell screenrecord /sdcard/record.mp4
+
+adb shell screencap -p /sdcard/screen.png
+
+</code></pre></div></div>
+
+:ET

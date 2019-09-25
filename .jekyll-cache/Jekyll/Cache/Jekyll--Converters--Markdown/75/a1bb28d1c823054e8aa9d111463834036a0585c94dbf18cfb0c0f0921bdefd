@@ -1,0 +1,98 @@
+I"A<p>1、查看手机内网IP</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class SystemUtils {
+ 
+ 
+    public SystemUtils() {
+    }
+ 
+    public static boolean isAppRunning(Context context, String name) {
+        if (TextUtils.isEmpty(name)) {
+            return false;
+        } else {
+            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            List infos = am.getRunningAppProcesses();
+            if (infos == null) {
+                return false;
+            } else {
+                Iterator iterator = infos.iterator();
+ 
+                RunningAppProcessInfo info;
+                do {
+                    if (!iterator.hasNext()) {
+                        return false;
+                    }
+ 
+                    info = (RunningAppProcessInfo) iterator.next();
+                } while (!info.processName.equals(name));
+ 
+                return true;
+            }
+        }
+    }
+ 
+    public static String getCurrentProcessName(Context context) {
+        int pid = Process.myPid();
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List infos = am.getRunningAppProcesses();
+        if (infos == null) {
+            return null;
+        } else {
+            Iterator iterator = infos.iterator();
+ 
+            RunningAppProcessInfo info;
+            do {
+                if (!iterator.hasNext()) {
+                    return null;
+                }
+ 
+                info = (RunningAppProcessInfo) iterator.next();
+            } while (info.pid != pid);
+ 
+            return info.processName;
+        }
+    }
+ 
+    public static boolean isInBackground(Context context) {
+        boolean isInBackground = true;
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List taskInfo;
+        if (VERSION.SDK_INT &gt; 20) {
+            taskInfo = am.getRunningAppProcesses();
+            Iterator componentInfo = taskInfo.iterator();
+ 
+            while (true) {
+                RunningAppProcessInfo processInfo;
+                do {
+                    if (!componentInfo.hasNext()) {
+                        return isInBackground;
+                    }
+ 
+                    processInfo = (RunningAppProcessInfo) componentInfo.next();
+                } while (processInfo.importance != 100);
+ 
+                String[] pkgs = processInfo.pkgList;
+                int length = pkgs.length;
+ 
+                for (int i = 0; i &lt; length; ++i) {
+                    String activeProcess = pkgs[i];
+                    if (activeProcess.equals(context.getPackageName())) {
+                        return false;
+                    }
+                }
+            }
+        } else {
+            taskInfo = am.getRunningTasks(1);
+            ComponentName var10 = ((RunningTaskInfo) taskInfo.get(0)).topActivity;
+            if (var10.getPackageName().equals(context.getPackageName())) {
+                isInBackground = false;
+            }
+        }
+ 
+        return isInBackground;
+    }
+}
+
+</code></pre></div></div>
+
+:ET

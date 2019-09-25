@@ -1,0 +1,9 @@
+I"<h3 id="1配置依赖包">1、配置依赖包</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    // Room
+    def room_version = "1.1.0"
+    api "android.arch.persistence.room:runtime:$room_version"
+    api("android.arch.persistence.room:compiler:$room_version") {
+        exclude group: 'com.google.code.gson'
+    }
+</code></pre></div></div>
+:ET

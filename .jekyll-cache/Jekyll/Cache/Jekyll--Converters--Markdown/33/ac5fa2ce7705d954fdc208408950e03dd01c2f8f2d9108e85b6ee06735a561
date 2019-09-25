@@ -1,0 +1,11 @@
+I"�<p>1、<code class="highlighter-rouge">adb shell</code></p>
+
+<p>2、<code class="highlighter-rouge">su</code> </p>
+
+<p>3、<code class="highlighter-rouge">setprop service.adb.tcp.port 5555</code></p>
+
+<p>4、<code class="highlighter-rouge">adb tcpip 5555</code>回车，表示重启tcpip，并监听5555端口</p>
+
+<p>5、<code class="highlighter-rouge">adb connect xx.xx.xx.xx</code>   <code class="highlighter-rouge">adb disconnect xx.xx.xx.xx</code></p>
+
+:ET

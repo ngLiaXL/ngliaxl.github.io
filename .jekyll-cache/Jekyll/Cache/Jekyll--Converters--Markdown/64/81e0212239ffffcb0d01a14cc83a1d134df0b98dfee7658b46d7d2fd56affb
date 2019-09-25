@@ -1,0 +1,54 @@
+I"û<p>Remove duplicates from a list of objects based on property</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Wrapper&lt;T, U&gt; {
+    private T t;
+    private Function&lt;T, U&gt; equalityFunction;
+
+    public Wrapper(T t, Function&lt;T, U&gt; equalityFunction) {
+        this.t = t;
+        this.equalityFunction = equalityFunction;
+    }
+
+    public T unwrap() {
+        return this.t;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        @SuppressWarnings("unchecked")
+        Wrapper&lt;T, U&gt; that = (Wrapper&lt;T, U&gt;) o;
+        return Objects.equals(equalityFunction.apply(this.t), that.equalityFunction.apply(that.t));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(equalityFunction.apply(this.t));
+    }
+
+    public interface Function&lt;T, R&gt; {
+        R apply(T t);
+    }
+
+}
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static &lt;T, U&gt; void distinct(List&lt;T&gt; sourceList, Wrapper.Function&lt;T, U&gt; equalityFunction) {
+        List&lt;Wrapper&lt;T, U&gt;&gt; wrapperList = new ArrayList&lt;&gt;();
+        for (T t : sourceList) {
+            wrapperList.add(new Wrapper&lt;&gt;(t, equalityFunction));
+        }
+        LinkedHashSet&lt;Wrapper&lt;T, U&gt;&gt; set = new LinkedHashSet&lt;&gt;(sourceList.size());
+
+        set.addAll(wrapperList);
+        wrapperList.clear();
+        wrapperList.addAll(set);
+
+        sourceList.clear();
+        for (Wrapper&lt;T, U&gt; wrapper : wrapperList) {
+            sourceList.add(wrapper.unwrap());
+        }
+    }
+</code></pre></div></div>
+:ET

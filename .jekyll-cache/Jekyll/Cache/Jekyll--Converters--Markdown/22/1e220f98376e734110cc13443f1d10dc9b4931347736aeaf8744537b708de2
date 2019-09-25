@@ -1,0 +1,8 @@
+I"�<p>1、CMD命令窗口输入：<code class="highlighter-rouge">adb nodaemon server</code> 。查看哪个端口被占用。</p>
+
+<p>2、输入 <code class="highlighter-rouge">netstat -ano | findstr "5037"</code> 。然后会弹出提示告诉你哪些进程占用了该端口，记住非0地址的后面的数字</p>
+
+<p>3、打开任务管理器，点击“进程“，“查看”-“选择列”，勾选PID</p>
+
+<p>4、查找第2步中看到的数字PID，然后结束相关进程，即可</p>
+:ET

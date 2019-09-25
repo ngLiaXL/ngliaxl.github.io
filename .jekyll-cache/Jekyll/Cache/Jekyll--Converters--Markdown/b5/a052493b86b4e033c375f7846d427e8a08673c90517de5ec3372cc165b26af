@@ -1,0 +1,10 @@
+I"<p>1、查看手机内网IP</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb shell ip -f inet addr show wlan0
+</code></pre></div></div>
+
+<p><img src="/assets/img01.png" alt="" /></p>
+
+<p>2、解析inet后的IP地址</p>
+
+:ET

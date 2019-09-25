@@ -1,0 +1,97 @@
+I"�<h3 id="1配置依赖包">1、配置依赖包</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    // Room
+    def room_version = "1.1.0"
+    api "android.arch.persistence.room:runtime:$room_version"
+    api("android.arch.persistence.room:compiler:$room_version") {
+        exclude group: 'com.google.code.gson'
+    }
+</code></pre></div></div>
+
+<h3 id="2继承roomdatabase">2、继承RoomDatabase</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@android.arch.persistence.room.Database(
+        entities = {
+                PosUserT.class,
+
+        },
+        version = 1)
+@TypeConverters(DateConverter.class)
+public abstract class Database extends RoomDatabase {
+
+    private static volatile Database INSTANCE;
+
+    public abstract UserDao userDao();
+
+
+//    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+//        @Override
+//        public void migrate(SupportSQLiteDatabase mDatabase) {
+//            mDatabase.execSQL("ALTER TABLE DIS_SHOP_REMOVE_GOODS_T "
+//                    + " ADD COLUMN OPER_GOODS_TYPE VARCHAR");
+//        }
+//    };
+
+    public static Database getInstance(Context context) {
+        if (INSTANCE == null) {
+            synchronized (Database.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), Database.class, "retail.db")
+                            .allowMainThreadQueries()
+                            .build();
+//                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), Database.class, "retail.db")
+//                            .addMigrations(MIGRATION_1_2).build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+}
+
+</code></pre></div></div>
+<p><code class="highlighter-rouge">allowMainThreadQueries()</code>方法可以设置在UI线程操作数据库
+<code class="highlighter-rouge">addMigrations()</code>数据库版本升级</p>
+
+<h3 id="3建表">3、建表</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Entity(tableName = "pos_user_t")
+public class PosUserT {
+
+    @NonNull
+    @PrimaryKey()
+    @ColumnInfo(name = "user_id")
+    @SerializedName(value = "userid" , alternate = {"user_id",})
+    public String userId;
+
+	...
+}
+</code></pre></div></div>
+
+<h3 id="4自定义dao接口">4、自定义DAO接口</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Dao
+public interface UserDao extends BaseDao {
+
+    @Query("SELECT user_password FROM pos_user_t WHERE user_code = :userCode")
+    String queryPasswordByUserCode(String userCode);
+
+    @Query("DELETE FROM pos_user_t WHERE user_code = :userCode")
+    int deleteByUserCode(String userCode);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insert(PosUserT user);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long[] insert(List&lt;PosUserT&gt; users);
+
+    @Query("DELETE FROM pos_user_t")
+    int deleteAll();
+
+	...
+	
+}
+</code></pre></div></div>
+
+<h3 id="5使用">5、使用</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Database.getInstance(context).getUserDao().insert();
+</code></pre></div></div>
+
+:ET

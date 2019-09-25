@@ -1,0 +1,87 @@
+I"<h3 id="协议">协议</h3>
+<p>请求和响应头中增加</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept-Encoding: gzip
+Content-Encodin:gzip
+</code></pre></div></div>
+<p>确定客户端或服务器端是否支持压缩</p>
+
+<p>举例，客户端发送请求，服务端压缩响应数据返给客户端</p>
+
+<ul>
+  <li>
+    <p>客户端请求中增加Accept-Encoding: gzip表示客户端支持gzip；</p>
+  </li>
+  <li>
+    <p>服务端接收到请求后，将结果通过gzip压缩后返回给客户端并在响应头中增加Content-Encodin:gzip 表示响应数据已被压缩</p>
+  </li>
+  <li>
+    <p>客户端接收请求，响应头中有Content-Encodin:gzip表示数据需解压处理</p>
+  </li>
+</ul>
+
+<p>客户端也可以发送压缩数据给服务端，通过代码将请求数据压缩即可，规范起见同样要在请求中加入<code class="highlighter-rouge">Content-Encodin:gzip</code></p>
+
+<h3 id="okhttp压缩数据">OkHttp压缩数据</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private RequestBody gzip(final RequestBody body) {
+        return new RequestBody() {
+            @Override
+            public MediaType contentType() {
+                return body.contentType();
+            }
+ 
+            @Override
+            public long contentLength() {
+                return -1; // We don't know the compressed length in advance!
+            }
+ 
+            @Override
+            public void writeTo(BufferedSink sink) throws IOException {
+                BufferedSink gzipSink = Okio.buffer(new GzipSink(sink));
+                body.writeTo(gzipSink);
+                gzipSink.close();
+            }
+        };
+    }
+    public RequestBody getGzipRequest(String body) {
+        RequestBody request = null;
+        try {
+            request = RequestBody.create(MediaType.parse("application/octet-stream"),compress(body));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return request;
+    }
+
+
+</code></pre></div></div>
+
+<h3 id="okhttp解压自动响应gzip解压">OkHttp解压（自动响应gzip解压）</h3>
+<p>通过BridgeInterceptor类拦截响应，自动处理gzip解压</p>
+
+<h3 id="通过gzipoutputstreamgzipinputstream压缩和解压">通过GZIPOutputStream、GZIPInputStream压缩和解压</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static byte[] compress(String str) throws IOException {
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            try (GZIPOutputStream gzip = new GZIPOutputStream(out)) {
+                gzip.write(str.getBytes(StandardCharsets.UTF_8));
+            }
+            return out.toByteArray();
+            //return out.toString(StandardCharsets.ISO_8859_1);
+            // Some single byte encoding
+        }
+    }
+ 
+    public static String uncompress(byte[] str) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try (GZIPInputStream gis = new GZIPInputStream(new ByteArrayInputStream(str))) {
+            int b;
+            while ((b = gis.read()) != -1) {
+                baos.write((byte) b);
+            }
+        }
+        return new String(baos.toByteArray(), StandardCharsets.UTF_8);
+    }
+
+
+</code></pre></div></div>
+
+:ET

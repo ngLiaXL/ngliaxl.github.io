@@ -1,0 +1,93 @@
+I"v<h3 id="1下载jenkins">1、下载<a href="http://mirrors.jenkins.io/war-stable/latest/">Jenkins</a></h3>
+<p>直接下载.war文件，配置环境变量<code class="highlighter-rouge">JENKINS_HOME</code>，方便统一管理后期生成的文件，文件会在<code class="highlighter-rouge">JENKINS_HOME</code>下生成</p>
+
+<p><code class="highlighter-rouge">JENKINS_HOME=C:\app\Jenkins</code></p>
+
+<p>请忽略jenkins.msi,这是Win安装版</p>
+
+<h3 id="2配置tomcat">2、配置Tomcat</h3>
+<p>利用Tomcat分目录部署，复制jenkins.war到自定义的Tomcat根目录\webapp下</p>
+
+<p><img src="/assets/jenkins-2.png" alt="" /></p>
+
+<h3 id="3启动tomcat">3、启动Tomcat</h3>
+
+<p><code class="highlighter-rouge">tomcat.bat</code>启动Tomcat，完成后浏览器输入<code class="highlighter-rouge">http://localhost:8080/jenkins</code>安装插件，选择默认<code class="highlighter-rouge">Install suggested plugins</code>等待安装成功。如启动失败，尝试启动另一个Tomcat实例后再次启动Jenkins Tomcat实例</p>
+
+<p><img src="/assets/jenkins-1.png" alt="" /></p>
+
+<h3 id="4配置jenkins">4、配置Jenkins</h3>
+<p>插件安装完成会提示输入密钥、新建账号等输入完成进入下图页面</p>
+
+<p><img src="/assets/jenkins-3.png" alt="" /></p>
+
+<p>Manage Jenkins–&gt;Global Tool Configuration</p>
+
+<ul>
+  <li>配置JDK <code class="highlighter-rouge">别名</code> <code class="highlighter-rouge">JAVA_HOME</code> <code class="highlighter-rouge">JDK安装目录</code></li>
+  <li>配置Git	<code class="highlighter-rouge">name</code> <code class="highlighter-rouge">Path to Git executable</code> 选择 <code class="highlighter-rouge">Git安装目录\cmd\git.exe</code></li>
+  <li>配置Gradle <code class="highlighter-rouge">name</code> <code class="highlighter-rouge">GRADLE_HOME</code>  <code class="highlighter-rouge">xxuser\.gradle\wrapper\dis\gradle-5.1.1-all\xxx\gradle-5.1.1</code></li>
+  <li>保存</li>
+</ul>
+
+<h3 id="5新建任务">5、新建任务</h3>
+
+<p>完成JDK,Git,Gradle配置后接下来新建任务</p>
+
+<ul>
+  <li>输入一个任务名称</li>
+  <li>选择构建一个多配置项目</li>
+  <li><code class="highlighter-rouge">General</code> 标签输入<code class="highlighter-rouge">描述</code>,勾选<code class="highlighter-rouge">GitHub项目</code>,填写<code class="highlighter-rouge">项目 URL</code></li>
+  <li><code class="highlighter-rouge">源码管理</code> 标签勾选<code class="highlighter-rouge">Git</code>,Repositories URL 填写<code class="highlighter-rouge">项目 URL</code>,Credentials 添加凭据，输入GitHub<code class="highlighter-rouge">用户名</code> <code class="highlighter-rouge">密码</code></li>
+  <li><code class="highlighter-rouge">构建</code> 标签选择<code class="highlighter-rouge">Invoke Gradle script</code>,Task 输入 <code class="highlighter-rouge">clean assembleRelease</code></li>
+  <li>保存</li>
+</ul>
+
+<p>完成后自动返回到任务列表</p>
+
+<h3 id="6android项目buildgradle">6、Android项目<code class="highlighter-rouge">build.gradle</code></h3>
+<ul>
+  <li>新建签名文件</li>
+  <li>build.gradle 增加 buildType <code class="highlighter-rouge">release</code> 增加<code class="highlighter-rouge">signingConfigs release</code></li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>signingConfigs{
+	release{
+		storeFile file("../xxx.jks")
+		storePassword "xxx";
+		keyAlias "key0"
+		keyPassword "xxx"
+	
+	}
+}
+
+buildTypes{
+	release{
+		signingconfig signingConfigs.release
+	}
+}
+
+</code></pre></div></div>
+
+<h3 id="7开始构建">7、开始构建</h3>
+<p>第5步的任务列表右侧按钮开始构建,构建完成后选择当前任务的工作空间，apk文件在app\build文件夹下</p>
+
+<h3 id="8参数化构建">8、参数化构建</h3>
+
+<ul>
+  <li>任务列表，选择当前任务，选择配置，General标签下 勾选 <code class="highlighter-rouge">This project is parameterized</code></li>
+  <li>选择<code class="highlighter-rouge">Choice Parameter</code> 增加 VERSION_CODE 
+<img src="/assets/jenkins-4.jpg" alt="" /></li>
+  <li>gradle.properties 增加 VERSION_CODE=1.1参数</li>
+  <li>build.gradle 增加如下代码实现参数注入
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> android.applicationVariants.all { variant -&gt;
+    variant.outputs.all {
+        outputFileName = "${variant.name}-${VERSION_CODE}.apk"
+    }
+}
+</code></pre></div>    </div>
+  </li>
+  <li>开始构建，点击任务列表右侧构建按钮，会出现<code class="highlighter-rouge">需要如下参数用于构建项目</code> 选择你要配置的版本号，开始构建。</li>
+</ul>
+
+:ET
