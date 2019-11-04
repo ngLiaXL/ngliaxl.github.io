@@ -4,24 +4,49 @@ title:	"[Android]	Display Dependency Tree"
 date:	2019-08-05
 ---
 
-###	使用命令直接查看
-
-`gradle :app:dependencies --configuration releaseCompileClasspath`
-
-`gradle :app:dependencyInsight --dependency 'your particular dependency(or dependencies)'  --configuration releaseCompileClasspath`
-
-### 项目gradle文件中增加 DependencyReportTask task
-
 ```
-subprojects{
-    task DRT(type : DependencyReportTask){
+    private void copyAssets() {
+        AssetManager assetManager = getAssets();
+        String[] files = null;
+        try {
+            files = assetManager.list("");
+        } catch (IOException e) {
+            Log.e("tag", "Failed to get asset file list.", e);
+        }
+        if (files != null) for (String filename : files) {
+            InputStream in = null;
+            OutputStream out = null;
+            try {
+                in = assetManager.open(filename);
+                File outFile = new File(getExternalFilesDir(null), filename);
+                out = new FileOutputStream(outFile);
+                copyFile(in, out);
+            } catch(IOException e) {
+                Log.e("tag", "Failed to copy asset file: " + filename, e);
+            }
+            finally {
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+                if (out != null) {
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+            }
+        }
     }
-}
+    private void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while((read = in.read(buffer)) != -1){
+            out.write(buffer, 0, read);
+        }
+    }
 ```
-
-Android Studio Gradle标签中找到<你的模块名>-->Tasks-->other-->DRT 双击执行
-
-### 使用插件
-
-
-插件搜索`Gradle View`
