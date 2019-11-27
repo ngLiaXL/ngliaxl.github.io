@@ -1,18 +1,9 @@
----
-layout: post
-title:  "Source Code"
-date:   2014-04-25 11:53:27 +0800
-categories: android
----
+I"�<h3 id="位运算运用-权限">位运算运用-权限</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Permission {
 
+    public static final int READ = 1 &lt;&lt; 0; // 0001
 
-### 位运算运用-权限
-```
-public class Permission {
-
-    public static final int READ = 1 << 0; // 0001
-
-    public static final int WRITE = 1 << 1; // 0010
+    public static final int WRITE = 1 &lt;&lt; 1; // 0010
 
     private int permission;
 
@@ -34,21 +25,21 @@ public class Permission {
      * 删除权限
      */
     public void cancel(int permission) {
-        this.permission &= ~permission;
+        this.permission &amp;= ~permission;
     }
 
     /**
      * 是否有此权限
      */
     public boolean allow(int permission) {
-        return (this.permission & permission) == permission;
+        return (this.permission &amp; permission) == permission;
     }
 
     /**
      * 是否没有此权限
      */
     public boolean notAllow(int permission) {
-        return (this.permission & permission) == 0;
+        return (this.permission &amp; permission) == 0;
     }
 
     /**
@@ -60,11 +51,10 @@ public class Permission {
 
 
 }
-```
+</code></pre></div></div>
 
-### Assets copy
-```
-    private void copyAssets() {
+<h3 id="assets-copy">Assets copy</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private void copyAssets() {
         AssetManager assetManager = getAssets();
         String[] files = null;
         try {
@@ -108,13 +98,12 @@ public class Permission {
             out.write(buffer, 0, read);
         }
     }
-```
+</code></pre></div></div>
 
-### Get the process name
-```
-public static String getProcessName(Context cxt, int pid) {
+<h3 id="get-the-process-name">Get the process name</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName(Context cxt, int pid) {
     ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
-    List<ActivityManager.RunningAppProcessInfo> runningApps = null;
+    List&lt;ActivityManager.RunningAppProcessInfo&gt; runningApps = null;
     if (am != null) {
         runningApps = am.getRunningAppProcesses();
     }
@@ -129,10 +118,9 @@ public static String getProcessName(Context cxt, int pid) {
     return null;
 }
 
-```
+</code></pre></div></div>
 
-```
-public static String getProcessName() {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName() {
   try {
     File file = new File("/proc/" + android.os.Process.myPid() + "/" + "cmdline");
     BufferedReader mBufferedReader = new BufferedReader(new FileReader(file));
@@ -144,4 +132,5 @@ public static String getProcessName() {
     return null;
   }
 }
-```
+</code></pre></div></div>
+:ET

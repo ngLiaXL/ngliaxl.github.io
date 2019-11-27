@@ -1,4 +1,4 @@
-I"v<h3 id="使用命令直接查看">使用命令直接查看</h3>
+I"K<h3 id="使用命令直接查看">使用命令直接查看</h3>
 
 <p><code class="highlighter-rouge">gradle :app:dependencies --configuration releaseCompileClasspath</code></p>
 
@@ -6,15 +6,9 @@
 
 <h3 id="项目gradle文件中增加-dependencyreporttask-task">项目gradle文件中增加 DependencyReportTask task</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>subprojects{
+<pre><code class="language-```">subprojects{
     task DRT(type : DependencyReportTask){
     }
 }
-</code></pre></div></div>
-
-<p>Android Studio Gradle标签中找到<你的模块名>--&gt;Tasks--&gt;other--&gt;DRT 双击执行</你的模块名></p>
-
-<h3 id="使用插件">使用插件</h3>
-
-<p>插件搜索<code class="highlighter-rouge">Gradle View</code></p>
+</code></pre>
 :ET
