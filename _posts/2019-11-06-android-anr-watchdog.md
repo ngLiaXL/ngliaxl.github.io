@@ -1,0 +1,61 @@
+---
+layout:	post
+title:	"[Android]	ANR Watchdog"
+date:	2019-11-06
+---
+Periodically send a message to the main thread to check if the message has been processed.
+
+```
+public class ANRWatchDog extends Thread {
+
+    private static final String TAG = "ANRWatchDog";
+    private volatile long mTick = 0;
+
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
+    private final int mTimeoutInterval;
+
+    private final Runnable mTicker = new Runnable() {
+        @Override
+        public void run() {
+            mTick = 0;
+
+        }
+    };
+
+
+    public ANRWatchDog(int mTimeoutInterval) {
+        super("YourApp Watchdog");
+        this.mTimeoutInterval = mTimeoutInterval;
+    }
+
+
+    @Override
+    public void run() {
+        long interval = mTimeoutInterval;
+        while (!isInterrupted()) {
+            Log.d(TAG, "YourApp Watchdog run");
+            boolean needPost = mTick == 0;
+            mTick += interval;
+            if (needPost) {
+                mHandler.post(mTicker);
+            }
+            try {
+                Thread.sleep(interval);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (mTick != 0) {
+                throw new ANRException();
+            }
+        }
+    }
+
+    public static class ANRException extends RuntimeException {
+        public ANRException() {
+            super("Your app is not responding");
+        }
+    }
+}
+
+```
