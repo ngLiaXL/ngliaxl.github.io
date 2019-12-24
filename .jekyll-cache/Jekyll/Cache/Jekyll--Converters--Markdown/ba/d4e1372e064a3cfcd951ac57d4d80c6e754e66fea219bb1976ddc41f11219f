@@ -1,0 +1,24 @@
+I"/<h3 id="1创建用户池">1、创建用户池</h3>
+<p>用户池可以注册登陆服务，使用第三方社交登陆，配合身份池来授权用户能否使用AWS的服务。本文不使用任何类型的身份验证，可以忽略此步骤，如有需要可以访问如下链接使用身份池来验证身份。
+<a href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/cognito-user-identity-pools.html">如何创建用户池</a></p>
+
+<h3 id="2创建身份池">2、创建身份池</h3>
+<ul>
+  <li>打开AWS控制台&gt;服务中找到Cignito&gt;Create new identity pool&gt;输入name&gt;勾选 <strong>Enable access to unauthenticated identities.</strong>&gt;Create pool.
+<img src="/assets/aws-iot-01.jpg" alt="" /></li>
+  <li>身份池创建完成后，控制台会要求你在IAM上创建两个新角色，创建这些角色并转到IAM -&gt;角色并选择您创建的角色</li>
+</ul>
+
+<h3 id="3附加策略">3、附加策略</h3>
+
+<h3 id="4创建物品">4、创建物品</h3>
+
+<h3 id="5创建策略">5、创建策略</h3>
+
+<h3 id="6物品附加策略">6、物品附加策略</h3>
+
+<h3 id="7使用android-sdk-订阅和发布消息">7、使用Android SDK 订阅和发布消息</h3>
+
+<p><a href="https://github.com/awslabs/aws-sdk-android-samples/tree/master/AndroidPubSub">AWS IoT Android Sample</a></p>
+
+:ET

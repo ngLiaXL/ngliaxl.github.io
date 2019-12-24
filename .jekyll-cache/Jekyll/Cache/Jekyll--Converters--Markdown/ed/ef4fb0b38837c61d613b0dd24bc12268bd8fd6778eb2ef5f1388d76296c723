@@ -1,10 +1,10 @@
-I"�<h2 id="mycv">MyCV</h2>
+I"�<h2 id="mycv">MyCV</h2>
 
 <h3 id="个人经历">个人经历</h3>
 <p>2019/02—至今</p>
 <ul>
-  <li><strong>现公司，移动研发部，Android开发工程师</strong><br />
-负责门户类App项目维护及研发</li>
+  <li><strong>埃森哲信息技术（大连）有限公司，阿里事业部，Android开发工程师</strong><br />
+负责电梯安全屏项目维护及研发</li>
 </ul>
 
 <p>2014/07—2019/02</p>
@@ -35,6 +35,14 @@
 
 <h3 id="项目经验">项目经验</h3>
 <ul>
+  <li>
+    <p><strong>2019/02—至今，埃森哲，Safety Media Screen</strong><br />
+项目简介：<br />
+• 电梯安全屏项目，功能包括广告播放、音视频对讲、摄像头电梯大屏通讯<br />
+• 数据库Room、网络Retrofit、消息AWS IoT、音视频阿里云RTC、局域网通讯WebSocket<br />
+职责：<br />
+• 负责整体项目设计及研发</p>
+  </li>
   <li>
     <p><strong>2018/04—2019/02，怡亚通，POS收银</strong><br />
 项目简介：<br />
