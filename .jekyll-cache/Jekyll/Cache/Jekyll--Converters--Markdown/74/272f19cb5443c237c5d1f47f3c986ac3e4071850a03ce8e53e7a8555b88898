@@ -1,4 +1,0 @@
-I"e<h3 id="1创建用户池">1、创建用户池</h3>
-<p>用户池可以注册登陆服务，使用第三方社交登陆，配合身份池来授权用户能否使用AWS的服务。本文不使用任何类型的身份验证
-<a href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/cognito-user-identity-pools.html">如何创建用户池</a></p>
-:ET

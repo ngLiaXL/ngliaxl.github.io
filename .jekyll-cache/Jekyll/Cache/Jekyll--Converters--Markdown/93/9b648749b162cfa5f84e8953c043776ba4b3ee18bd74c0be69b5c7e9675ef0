@@ -1,0 +1,71 @@
+I"�<p><a href="https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/how-to-generate-sdk-android.html">官方文档地址</a></p>
+
+<h3 id="1创建api-gateway">1、创建API Gateway</h3>
+<p>登陆AWS 控制台-&gt;服务中找到API Gateway-&gt;右上角Create API</p>
+
+<p><img src="/assets/aws-apigateway-01.jpg" alt="" /></p>
+
+<p>输入API 名称-&gt;创建 API。</p>
+
+<h3 id="2创建资源">2、创建资源</h3>
+<p>选择刚刚创建的API-&gt;找到左侧操作按钮点击下拉-&gt;选择创建资源-&gt;输入资源名称，资源路径-&gt;创建资源
+<img src="/assets/aws-apigateway-02.jpg" alt="" /></p>
+
+<h3 id="3创建方法">3、创建方法</h3>
+<p>选择刚刚创建的资源-&gt;找到左侧操作按钮点击下拉-&gt;选择创建方法-&gt;根据你的API方法选择方法名
+<img src="/assets/aws-apigateway-03.jpg" alt="" /></p>
+<ul>
+  <li>集成类型勾选HTTP</li>
+  <li>终端节点URL录入API的请求URL
+保存。</li>
+</ul>
+
+<h3 id="4设置授权信息">4、设置授权信息</h3>
+<ul>
+  <li><img src="/assets/aws-apigateway-04.jpg" alt="" />
+交互里面有终端节点和一些定义好的Topic，记录终端节点。</li>
+</ul>
+
+<h3 id="5创建策略">5、创建策略</h3>
+<ul>
+  <li>打开AWS控制台-&gt;服务中找到AWS IoT-&gt;安全-&gt;策略-&gt;创建
+<img src="/assets/aws-iot-12.jpg" alt="" />
+可以直接录入* 记录策略名称</li>
+</ul>
+
+<h3 id="6物品附加策略">6、物品附加策略</h3>
+<ul>
+  <li>打开AWS控制台-&gt;服务中找到AWS IoT-&gt;管理-&gt;物品-&gt;操作-&gt;附加策略
+<img src="/assets/aws-iot-11.jpg" alt="" />
+至此AWS控制台配置完成。</li>
+</ul>
+
+<h3 id="7使用android-sdk-订阅和发布消息">7、使用Android SDK 订阅和发布消息</h3>
+
+<p>打开<a href="https://github.com/awslabs/aws-sdk-android-samples/tree/master/AndroidPubSub">AWS Android SDK Sample</a>，
+<img src="/assets/aws-iot-13.jpg" alt="" /></p>
+
+<ul>
+  <li><strong>awsconfiguration.json-&gt;PoolId和Region</strong> 第2步身份池Id和区域</li>
+  <li><strong>CUSTOMER_SPECIFIC_ENDPOINT</strong> 第4步终端节点</li>
+  <li><strong>AWS_IOT_POLICY_NAME</strong> 第5步策略名称
+打开APP录入自定义topic即可发送消息</li>
+</ul>
+
+<h3 id="8aws控制台订阅发布消息">8、AWS控制台订阅发布消息</h3>
+
+<ul>
+  <li>打开AWS控制台-&gt;服务中找到AWS IoT-&gt;测试-&gt;录入订阅主题-&gt;录入指定要发布的主题和消息，QoS 为 0-&gt;发布到主题。</li>
+</ul>
+
+<h3 id="9开发中遇到的问题">9、开发中遇到的问题</h3>
+<ul>
+  <li>断网重连需设置<code class="highlighter-rouge">mqttManager.setAutoReconnect(true); mqttManager.setMaxAutoReconnectAttempts(Integer.MAX_VALUE);</code></li>
+  <li>证书下载考虑到失败的场景需要做容错处理</li>
+  <li>初始化的clientId保证唯一，否则会有互相踢掉的情况。</li>
+  <li>采用匿名身份来访问AWS服务并不安全，建议使用身份验证来访问服务。</li>
+  <li>物品中可以创建证书，终端可以使用物品证书的方式使用IoT。</li>
+  <li>用户池和身份池用来限制用户能否使用AWS服务，IAM角色中内敛策略用来更细粒度的限制用户访问服务的权限</li>
+</ul>
+
+:ET
