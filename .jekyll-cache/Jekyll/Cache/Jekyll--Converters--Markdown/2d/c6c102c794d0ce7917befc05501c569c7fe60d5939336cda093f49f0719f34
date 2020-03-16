@@ -1,0 +1,82 @@
+I"<p>一些私密信息加密保存到so文件中，通过简单的反射机制解密信息防止so文件的盗用。</p>
+
+<h3 id="新建-safetykeysjava">新建 SafetyKeys.java</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">ngliaxl</span><span class="p">.</span><span class="n">safetykeys</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="n">class</span> <span class="n">SafetyKeys</span> <span class="p">{</span>
+
+    <span class="n">static</span> <span class="p">{</span>
+        <span class="nf">System</span><span class="p">.</span><span class="n">loadLibrary</span><span class="p">(</span><span class="s2">"SafetyKeys"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">public</span> <span class="n">native</span> <span class="k">String</span> <span class="n">nativeAccessKey</span><span class="p">();</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="新建desjava-解密类">新建DES.java 解密类</h3>
+
+<h3 id="生成h">生成.h</h3>
+
+<p>your project path\app\src\main\java&gt;<code class="highlighter-rouge">javah -jni com.ngliaxl.safetykeys.SafetyKeys</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>com_ngliaxl_safetykeys_SafetyKeys.h
+</code></pre></div></div>
+<p>your project path\app\src\main\ 新建<code class="highlighter-rouge">jni</code>文件夹
+将<code class="highlighter-rouge">com_ngliaxl_safetykeys_SafetyKeys.h</code>复制到<code class="highlighter-rouge">jni</code></p>
+
+<h3 id="新建cpp">新建.cpp</h3>
+
+<p><code class="highlighter-rouge">jni</code>文件夹下新建SafetyKeys.cpp</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;jni.h&gt;
+#include &lt;com_ngliaxl_safetykeys_SafetyKeys.h&gt;
+
+extern "C" {
+/*
+ * Class:     com_ngliaxl_safetykeys_SafetyKeys
+ * Method:    nativeAccessKey
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_ngliaxl_safetykeys_SafetyKeys_nativeAccessKey
+  (JNIEnv * env, jobject obj){
+ jclass des_class = env-&gt;FindClass("com/ngliaxl/safetykeys/DES");
+    if (env-&gt;ExceptionCheck()) {
+        env-&gt;ExceptionClear();
+      return NULL;
+    }
+
+    jmethodID decrypt_id = env-&gt;GetStaticMethodID(des_class, "decrypt", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+    if (env-&gt;ExceptionCheck()) {
+        env-&gt;ExceptionClear();
+      return NULL;
+    }
+    jstring access_key = env-&gt;NewStringUTF("urBJqAZ7vwf3KZT8UY7zTeDlQMT4hQRR");
+    jstring des_key = env-&gt;NewStringUTF("nullnull");
+
+    jstring decrypt_key = (jstring) env-&gt;CallStaticObjectMethod(des_class, decrypt_id, access_key,des_key);
+    if (env-&gt;ExceptionCheck()) {
+        env-&gt;ExceptionClear();
+      return NULL;
+    }
+    return decrypt_key;
+
+  }
+
+}
+</code></pre></div></div>
+
+<h3 id="新建-androidmk-applicationmk">新建 Android.mk Application.mk</h3>
+<p>Android.mk</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOCAL_PATH:=$(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_MODULE := SafetyKeys
+LOCAL_SRC_FILES := SafetyKeys.cpp
+LOCAL_LDLIBS := -llog
+include $(BUILD_SHARED_LIBRARY)
+</code></pre></div></div>
+<p>Application.mk</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>APP_ABI := all
+</code></pre></div></div>
+<p>###
+your project path\app\src\main\jni&gt;<code class="highlighter-rouge">ndk-build</code></p>
+
+:ET

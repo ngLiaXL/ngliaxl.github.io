@@ -1,4 +1,4 @@
-I"�<h3 id="位运算运用-权限">位运算运用-权限</h3>
+I"�<h3 id="位运算运用-权限">位运算运用-权限</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Permission {
 
     public static final int READ = 1 &lt;&lt; 0; // 0001
@@ -133,4 +133,26 @@
   }
 }
 </code></pre></div></div>
+
+<h3 id="copy-file">Copy File</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static void copy(File src, File dst) throws IOException {
+        InputStream in = new FileInputStream(src);
+        try {
+            OutputStream out = new FileOutputStream(dst);
+            try {
+                // Transfer bytes from in to out
+                byte[] buf = new byte[1024];
+                int len;
+                while ((len = in.read(buf)) &gt; 0) {
+                    out.write(buf, 0, len);
+                }
+            } finally {
+                out.close();
+            }
+        } finally {
+            in.close();
+        }
+    }
+</code></pre></div></div>
+
 :ET
