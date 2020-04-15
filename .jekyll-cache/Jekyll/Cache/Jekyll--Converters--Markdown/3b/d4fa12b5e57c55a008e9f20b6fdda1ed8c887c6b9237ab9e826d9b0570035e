@@ -1,0 +1,24 @@
+I"5<h3 id="instasll-nodejs">Instasll <a href="!https://nodejs.org/">Node.js</a></h3>
+<p><code class="highlighter-rouge">npm config set prefix "C:\Software\nodejs\node_global"</code>
+<code class="highlighter-rouge">npm config set cache "C:\Software\nodejs\node_cache"</code></p>
+
+<h3 id="install-the-ionic-cli">Install the Ionic CLI</h3>
+<p><code class="highlighter-rouge">npm install -g cnpm –registry=https://registry.npm.taobao.org</code>
+<code class="highlighter-rouge">cnpm install -g @ionic/cli</code></p>
+
+<h3 id="start-an-app">Start an App</h3>
+<p><code class="highlighter-rouge">ionic start</code>/<code class="highlighter-rouge">ionic start myApp tabs</code>
+cd myApp
+<code class="highlighter-rouge">ionic serve</code></p>
+<h3 id="安装capacitor">安装capacitor</h3>
+<p>inside of your project folder
+<code class="highlighter-rouge">npm install --save @capacitor/core @capacitor/cli</code>
+<code class="highlighter-rouge">npx cap init</code>
+————–
+<code class="highlighter-rouge">ionic build</code>    —&gt;This creates the www folder that Capacitor has been automatically configured to use as the webDir in capacitor.config.json.
+<code class="highlighter-rouge">npx cap add android</code>
+<code class="highlighter-rouge">npx cap open android</code>
+### 
+<code class="highlighter-rouge">npx cap copy</code></p>
+
+:ET

@@ -1,0 +1,48 @@
+I"
+<p><a href="!https://ionicframework.com/docs/intro/cli">Ionic Installation Guide</a></p>
+
+<h3 id="instasll-nodejs">Instasll <a href="!https://nodejs.org/">Node.js</a></h3>
+<p><code class="highlighter-rouge">npm config set prefix "C:\Software\nodejs\node_global"</code><br />
+<code class="highlighter-rouge">npm config set cache "C:\Software\nodejs\node_cache"</code></p>
+
+<h3 id="install-the-ionic-cli">Install the Ionic CLI</h3>
+<p><code class="highlighter-rouge">npm install -g cnpm –registry=https://registry.npm.taobao.org</code><br />
+<code class="highlighter-rouge">cnpm install -g @ionic/cli</code></p>
+
+<h3 id="start-an-app">Start an App</h3>
+<p><code class="highlighter-rouge">ionic start</code>/<code class="highlighter-rouge">ionic start myApp tabs</code><br />
+<code class="highlighter-rouge">cd myApp</code><br />
+<code class="highlighter-rouge">ionic serve</code></p>
+
+<h3 id="using-capacitor-with-ionic"><a href="!https://capacitor.ionicframework.com/docs/getting-started/with-ionic/">Using Capacitor with Ionic</a></h3>
+<p>inside of your project folder<br />
+<code class="highlighter-rouge">npm install --save @capacitor/core @capacitor/cli</code><br />
+<code class="highlighter-rouge">npx cap init</code><br />
+<code class="highlighter-rouge">ionic build</code>    —&gt;This creates the <code class="highlighter-rouge">www</code> folder that Capacitor has been automatically configured to use as the webDir in <code class="highlighter-rouge">capacitor.config.json</code>.<br />
+<code class="highlighter-rouge">npx cap add android</code><br />
+<code class="highlighter-rouge">npx cap open android</code></p>
+
+<h3 id="syncing-your-app-with-capacitor">Syncing your app with Capacitor</h3>
+<p>Every time you perform a build (e.g. ionic build) that changes your web directory (default: www), you’ll need to copy those changes down to your native projects:<br />
+<code class="highlighter-rouge">npx cap copy</code></p>
+
+<h3 id="environment-variable">Environment Variable</h3>
+
+<p>ANDROID_SDK_ROOT
+C:\LiangXianglong\Software\Android\AndroidSdk</p>
+
+<p>GRADLE_HOME
+C:\Users\xianglong.liang.gradle\wrapper\dists\gradle-5.6.4-all\ankdp27end7byghfw1q2sw75f\gradle-5.6.4</p>
+
+<p>CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL
+C:\Users\xianglong.liang.gradle\wrapper\dists\gradle-5.6.4-all\ankdp27end7byghfw1q2sw75f\gradle-5.6.4-all.zip</p>
+
+<p>JAVA_HOME
+C:\LiangXianglong\Software\Java\jdk1.8.0_221</p>
+
+<p>NODE_HOME
+C:\LiangXianglong\Software\nodejs</p>
+
+<p>;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%ANDROID_SDK_ROOT%\platform-tools;%ANDROID_SDK_ROOT%\tools;%ANDROID_SDK_ROOT%\tools\bin;%ANDROID_SDK_ROOT%\emulator;%NDK_ROOT%;%GRADLE_HOME%\bin;%NODE_HOME%;%NODE_HOME%\node_global;</p>
+
+:ET
