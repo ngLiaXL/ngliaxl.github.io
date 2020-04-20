@@ -1,0 +1,98 @@
+I"�<p><a href="https://ionicframework.com/docs/intro/cli">Ionic Installation Guide</a></p>
+
+<h3 id="instasll-nodejs">Instasll <a href="https://nodejs.org/">Node.js</a></h3>
+<p><code class="highlighter-rouge">npm config set prefix "C:\Software\nodejs\node_global"</code><br />
+<code class="highlighter-rouge">npm config set cache "C:\Software\nodejs\node_cache"</code></p>
+
+<h3 id="install-the-ionic-cli">Install the Ionic CLI</h3>
+<p><code class="highlighter-rouge">npm install -g cnpm –registry=https://registry.npm.taobao.org</code><br />
+<code class="highlighter-rouge">cnpm install -g @ionic/cli</code></p>
+
+<h3 id="start-an-app">Start an App</h3>
+<p><code class="highlighter-rouge">ionic start</code>/<code class="highlighter-rouge">ionic start myApp tabs</code><br />
+<code class="highlighter-rouge">cd myApp</code><br />
+<code class="highlighter-rouge">ionic serve</code></p>
+
+<h3 id="using-capacitor-with-ionic"><a href="https://capacitor.ionicframework.com/docs/getting-started/with-ionic/">Using Capacitor with Ionic</a></h3>
+<p>inside of your project folder<br />
+<code class="highlighter-rouge">npm install --save @capacitor/core @capacitor/cli</code><br />
+<code class="highlighter-rouge">npx cap init</code><br />
+<code class="highlighter-rouge">ionic build</code>    —&gt;This creates the <code class="highlighter-rouge">www</code> folder that Capacitor has been automatically configured to use as the webDir in <code class="highlighter-rouge">capacitor.config.json</code>.<br />
+<code class="highlighter-rouge">npx cap add android</code><br />
+<code class="highlighter-rouge">npx cap open android</code></p>
+
+<h3 id="using-cordova-with-ionic"><a href="https://ionicframework.com/docs/developing/android">Using Cordova with Ionic</a></h3>
+
+<p><code class="highlighter-rouge">ionic start</code>/<code class="highlighter-rouge">ionic start myApp tabs</code><br />
+Integrate your new app with Capacitor to target native iOS and Android? (y/N)  N<br />
+<code class="highlighter-rouge">ionic cordova prepare android</code><br />
+<code class="highlighter-rouge">ionic cordova run android -l</code></p>
+
+<p>If an exception occurred while compiling the gradle like:</p>
+<pre><code class="language-`">Exception in thread "main" java.lang.NullPointerException
+            at org.gradle.wrapper.PathAssembler.getDistName(PathAssembler.java:84)
+            at org.gradle.wrapper.PathAssembler.getDistribution(PathAssembler.java:40)
+            at org.gradle.wrapper.Install.createDist(Install.java:44)
+            at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:107)
+            at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:61)
+</code></pre>
+
+<p>Navigate to <code class="highlighter-rouge">PROJECT_ROOT_FOLDER/platforms/android/cordova/lib/builders folder and edit ProjectBuilder.js file</code><br />
+Change the line from: <code class="highlighter-rouge">var distributionUrl = process.env['CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL'] || 'http\\://services.gradle.org/distributions/gradle-4.10.3-all.zip';</code><br />
+to <br />
+<code class="highlighter-rouge">'var distributionUrl = process.env['CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL'] || 'http\\://services.gradle.org/distributions/gradle-5.6.4-all.zip'; 
+and save the file</code></p>
+
+<p><code class="highlighter-rouge">gradle-5.6.4-all.zip</code> The latest version of gradle.</p>
+
+<h3 id="syncing-your-app-with-capacitor">Syncing your app with Capacitor</h3>
+<p>Every time you perform a build (e.g. ionic build) that changes your web directory (default: www), you’ll need to copy those changes down to your native projects:<br />
+<code class="highlighter-rouge">npx cap copy</code></p>
+
+<h3 id="environment-variable">Environment Variable</h3>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">ANDROID_SDK_ROOT</code>
+C:\Software\Android\AndroidSdk</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">GRADLE_HOME</code>
+C:\Users\your user name.gradle\wrapper\dists\gradle-5.6.4-all\ankdp27end7byghfw1q2sw75f\gradle-5.6.4</p>
+  </li>
+</ul>
+
+<p><del>-	<code class="highlighter-rouge">CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL</code>
+C:\Users\your user name.gradle\wrapper\dists\gradle-5.6.4-all\ankdp27end7byghfw1q2sw75f\gradle-5.6.4-all.zip</del></p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">JAVA_HOME</code>
+C:\Software\Java\jdk1.8.0_221</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">NODE_HOME</code>
+C:\Software\nodejs</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Path</code>
+%JAVA_HOME%\bin;<br />
+%JAVA_HOME%\jre\bin;<br />
+%ANDROID_SDK_ROOT%\platform-tools;<br />
+%ANDROID_SDK_ROOT%\tools;%ANDROID_SDK_ROOT%\tools\bin;<br />
+%ANDROID_SDK_ROOT%\emulator;<br />
+%GRADLE_HOME%\bin;<br />
+%NODE_HOME%;<br />
+%NODE_HOME%\node_global;</p>
+  </li>
+</ul>
+
+<h3 id="versions">Versions</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node -v v12.16.2
+npm -v  6.14.4  
+cordova -v 9.0.0 (cordova-lib@9.0.1)
+
+
+</code></pre></div></div>
+
+:ET

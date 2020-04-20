@@ -1,4 +1,0 @@
-I"<h3 id="instasll-nodejs">Instasll <a href="">Node.js</a></h3>
-<p><code class="highlighter-rouge">npm config set prefix "C:\LiangXianglong\Software\nodejs\node_global"</code>
-<code class="highlighter-rouge">npm config set cache "C:\LiangXianglong\Software\nodejs\node_cache"</code></p>
-:ET
