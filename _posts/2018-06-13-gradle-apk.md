@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Gradle]	build.gradle配置多渠道包"
+title:  "[Gradle]	build.gradle"
 date:   2018-06-13 11:53:27 +0800
 categories: android
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Java]	Windows安装Weblogic"
+title:  "[Java]	Weblogic Installation"
 date:   2018-01-13 11:53:27 +0800
 categories: web
 ---

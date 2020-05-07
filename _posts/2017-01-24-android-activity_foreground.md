@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Android]	判断App在前台、后台"
+title:  "[Android]	Is App In Background"
 date:   2017-01-24 11:53:27 +0800
 categories: android
 ---

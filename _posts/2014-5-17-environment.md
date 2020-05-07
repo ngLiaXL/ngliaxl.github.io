@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "开发环境记录"
+title:  "Environment Variables"
 date:   2014-05-17 +0800
 categories: tools
 ---

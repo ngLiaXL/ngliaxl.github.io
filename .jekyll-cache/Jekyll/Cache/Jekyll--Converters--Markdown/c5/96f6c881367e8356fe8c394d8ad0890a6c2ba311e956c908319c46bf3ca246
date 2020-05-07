@@ -1,0 +1,134 @@
+I"1<h3 id="mobile-developer">Mobile developer</h3>
+<ul>
+  <li>WeChat : 15040497030</li>
+  <li>Email : <a href="mailto:ngliaxl@gmail.com">ngliaxl@gmail.com</a></li>
+  <li>Blog : <a href="https://ngliaxl.github.io">ngliaxl.github.io</a></li>
+  <li>Github : <a href="https://github.com/ngLiaXL">github.com/ngliaxl</a></li>
+</ul>
+
+<h3 id="个人经历">个人经历</h3>
+<ul>
+  <li>
+    <p><strong>2019/02—至今  埃森哲信息技术（大连）有限公司  阿里事业部</strong><br />
+负责负责Eden Asia项目维护、KONE Safety Media Screen项目研发</p>
+  </li>
+  <li>
+    <p><strong>2014/07—2019/02  深圳市怡亚通供应链股份有限公司  信息中心</strong><br />
+负责IM、电商、电视类App技术调研、产品研发</p>
+  </li>
+  <li>
+    <p><strong>2013/08—2014/07  ;英睿（大连）科技有限公司  移动研发部</strong><br />
+负责地产类、打车类App技术调研、产品研发</p>
+  </li>
+  <li>
+    <p><strong>2011/08—2013/08  大连世纪鲲鹏科技有限公司  移动研发部</strong><br />
+负责手机管家App杀毒、私密模块产品研发</p>
+  </li>
+  <li>
+    <p><strong>2008/08—2011/08  辽宁警校</strong><br />
+软件技术</p>
+  </li>
+</ul>
+
+<h3 id="专业技能">专业技能</h3>
+<ul>
+  <li>8年Android开发经验</li>
+  <li>1年KJava开发经验</li>
+  <li>熟悉常见的Android应用开发框架</li>
+  <li>熟悉Android各版本API</li>
+</ul>
+
+<h3 id="项目经验">项目经验</h3>
+<ul>
+  <li>
+    <p><strong>2019/02—至今  埃森哲    Safety Media Screen</strong><br />
+项目简介：<br />
+• 电梯安全屏项目，功能包括广告播放、音视频对讲、摄像头电梯大屏通讯<br />
+• 数据库Room、网络Retrofit、消息AWS IoT、音视频阿里云RTC、局域网通讯WebSocket<br />
+职责：<br />
+• 负责整体项目设计及研发</p>
+  </li>
+  <li>
+    <p><strong>2018/04—2019/02  怡亚通    POS收银</strong><br />
+项目简介：<br />
+• 商超家电收银类项目，功能包括在线本地收银、数据上传下载、促销、积分、特价、买送、打折算费等<br />
+• 数据库Room、网络Retrofit、异步Rxjava2、架构MVP<br />
+职责：<br />
+• 负责整体项目设计及研发</p>
+  </li>
+  <li>
+    <p><strong>2016/04—2018/04  怡亚通    怡信</strong><br />
+项目简介：  <br />
+• IM类项目，使用融云第三方推送服务实现客户之间的聊天功能<br />
+• 功能包括即时文本、图片、语音消息、群组、聊天室等  <br />
+• 数据库Sqlite、网络HttpClient、异步AsyncTask、图片Glide<br />
+职责： <br />
+• 负责整体项目设计及研发</p>
+  </li>
+  <li>
+    <p><strong>2014/07—2016/04  终端传媒-怡亚通</strong><br />
+项目简介：  <br />
+• 广告类项目，根据不同商超、门店客户的需求在Android电视系统中播放视频广告<br />
+• 功能包括视频下载、定时播放、数据上报、定时开关机等<br />
+• 数据库Sqlite、网络Volley、推送JPush、定时任务AlarmManager、异步AsyncTask<br />
+职责： <br />
+• 负责整体项目设计及研发</p>
+  </li>
+</ul>
+
+<!--
+-	**2014/07—2015/06，怡亚通，宇商网**  
+项目简介：     
+• 电商类项目，功能包括商品展示、下单、支付、定位等  
+• 微信、支付宝、QQ、微博分享登录、高德定位  
+• 数据库Sqlite、网络Volley、异步AsyncTask、图片Volley的NetworkImageView  
+职责：   
+• 负责整体项目设计及研发
+-->
+
+<!--
+-	**2014/05—2014/07，英睿，中国故事**  
+项目简介：     
+• 电商酒类项目，功能包括扫描二维码分享品酒经验、文章发布等  
+• 支付宝、微信支付宝、zbar二维码  
+• 网络Volley  
+职责：   
+• 负责整体项目设计及研发
+-->
+
+<!--
+-	**2013/08—2014/05，英睿，神马地产**  
+项目简介：    
+• 地图打车类项目，功能包括乘客端的楼盘列表、订单、约车、司机抢单、百度地图定位、JPush推送、讯飞语音播报  
+职责：    
+• 负责整体项目设计及研发
+-->
+
+<ul>
+  <li>
+    <p><strong>2013/08—2014/07  MOBI电子市场-英睿</strong><br />
+项目简介：   <br />
+• App下载类项目，功能包括越南支付、Facebook、Google+ 登陆、Google上报<br />
+职责： <br />
+• 负责整体项目设计及研发</p>
+  </li>
+  <li>
+    <p><strong>2012/04—2013/08  手机优化-世纪鲲鹏</strong><br />
+项目简介：<br />
+• 手机优化类项目，功能包括病毒查杀、隐私保护、广告拦截、手机优化等<br />
+职责：   <br />
+• 负责私密图片模块，包括图片编辑、解密移动、删除等<br />
+• 杀毒模块，包括本地查杀、监听杀毒、定时查杀、安装包前/后APK文件扫描、文件时间监听</p>
+  </li>
+  <li>
+    <p><strong>2011/07—2012/04  Q信-世纪鲲鹏</strong>  <br />
+项目简介：<br />
+• KJava即时聊天、联系人管理类项目，功能包括联系人管理、通讯录增删改查、在线好友、聊天等<br />
+职责：   <br />
+• 负责登陆模块，包括一键激活、手动激活、IVR激活等<br />
+• 设置模块，包括好友验证、多语言实现、个人资料等<br />
+• 联系人模块，包括Quter名片、漫游好友、好友SayHi、好友删除、验证等<br />
+• 奥运版本的富文本解析</p>
+  </li>
+</ul>
+:ET

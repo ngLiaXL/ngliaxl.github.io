@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "字符串模糊匹配-朴素/KMP算法"
+title:  "KMP"
 date:   2019-06-3
 ---
 

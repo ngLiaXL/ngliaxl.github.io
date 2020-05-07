@@ -1,0 +1,4 @@
+I"�<h3 id="list多属性排序">List多属性排序</h3>
+<p>```
+public class MultiComparator<T> implements Comparator<T> {</T></T></p>
+:ET

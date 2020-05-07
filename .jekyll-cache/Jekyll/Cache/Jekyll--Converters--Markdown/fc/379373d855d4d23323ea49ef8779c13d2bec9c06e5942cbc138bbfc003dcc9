@@ -1,0 +1,243 @@
+I"@<h3 id="反射-drawable">反射 Drawable</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	private int getDrawableByReflect(String field) {
+		int drawable = 0;
+		// "cn.testreflect.R$drawable"
+		String pkg = MainApplication.getContext().getPackageName();
+		String clazz = pkg + ".R$drawable";
+		try {
+			Field f = Class.forName(clazz).getField(field);
+			drawable = f.getInt(field);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return drawable;
+	}
+</code></pre></div></div>
+<h3 id="位运算运用-权限">位运算运用-权限</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Permission {
+
+    public static final int READ = 1 &lt;&lt; 0; // 0001
+
+    public static final int WRITE = 1 &lt;&lt; 1; // 0010
+
+    private int permission;
+
+    /**
+     * 设置权限
+     */
+    public void set(int permission) {
+        this.permission = permission;
+    }
+
+    /**
+     * 添加权限
+     */
+    public void add(int permission) {
+        this.permission |= permission;
+    }
+
+    /**
+     * 删除权限
+     */
+    public void cancel(int permission) {
+        this.permission &amp;= ~permission;
+    }
+
+    /**
+     * 是否有此权限
+     */
+    public boolean allow(int permission) {
+        return (this.permission &amp; permission) == permission;
+    }
+
+    /**
+     * 是否没有此权限
+     */
+    public boolean notAllow(int permission) {
+        return (this.permission &amp; permission) == 0;
+    }
+
+    /**
+     * 是否只拥有此权限
+     */
+    public boolean onlyAllow(int permission) {
+        return this.permission == permission;
+    }
+
+
+}
+</code></pre></div></div>
+
+<h3 id="assets-copy">Assets copy</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private void copyAssets() {
+        AssetManager assetManager = getAssets();
+        String[] files = null;
+        try {
+            files = assetManager.list("");
+        } catch (IOException e) {
+            Log.e("tag", "Failed to get asset file list.", e);
+        }
+        if (files != null) for (String filename : files) {
+            InputStream in = null;
+            OutputStream out = null;
+            try {
+                in = assetManager.open(filename);
+                File outFile = new File(getExternalFilesDir(null), filename);
+                out = new FileOutputStream(outFile);
+                copyFile(in, out);
+            } catch(IOException e) {
+                Log.e("tag", "Failed to copy asset file: " + filename, e);
+            }
+            finally {
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+                if (out != null) {
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+            }
+        }
+    }
+    private void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while((read = in.read(buffer)) != -1){
+            out.write(buffer, 0, read);
+        }
+    }
+</code></pre></div></div>
+
+<h3 id="get-the-process-name">Get the process name</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName(Context cxt, int pid) {
+    ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
+    List&lt;ActivityManager.RunningAppProcessInfo&gt; runningApps = null;
+    if (am != null) {
+        runningApps = am.getRunningAppProcesses();
+    }
+    if (runningApps == null) {
+        return null;
+    }
+    for (ActivityManager.RunningAppProcessInfo processInfo : runningApps) {
+        if (processInfo.pid == pid) {
+            return processInfo.processName;
+        }
+    }
+    return null;
+}
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName() {
+  try {
+    File file = new File("/proc/" + android.os.Process.myPid() + "/" + "cmdline");
+    BufferedReader mBufferedReader = new BufferedReader(new FileReader(file));
+    String processName = mBufferedReader.readLine().trim();
+    mBufferedReader.close();
+    return processName;
+  } catch (Exception e) {
+    e.printStackTrace();
+    return null;
+  }
+}
+</code></pre></div></div>
+
+<h3 id="copy-file">Copy File</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static void copy(File src, File dst) throws IOException {
+        InputStream in = new FileInputStream(src);
+        try {
+            OutputStream out = new FileOutputStream(dst);
+            try {
+                // Transfer bytes from in to out
+                byte[] buf = new byte[1024];
+                int len;
+                while ((len = in.read(buf)) &gt; 0) {
+                    out.write(buf, 0, len);
+                }
+            } finally {
+                out.close();
+            }
+        } finally {
+            in.close();
+        }
+    }
+</code></pre></div></div>
+
+<h3 id="md5">MD5</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MD5 {
+    private static final String TAG = "MD5";
+ 
+    public static boolean checkMD5(String md5, File updateFile) {
+        if (TextUtils.isEmpty(md5) || updateFile == null) {
+            Log.e(TAG, "MD5 string empty or updateFile null");
+            return false;
+        }
+ 
+        String calculatedDigest = null;
+  try {
+   calculatedDigest = calculateMD5(updateFile);
+  } catch (Exception e) {
+   e.printStackTrace();
+  }
+  
+        if (calculatedDigest == null) {
+            Log.e(TAG, "calculatedDigest null");
+            return false;
+        }
+ 
+        Log.v(TAG, "Calculated digest: " + calculatedDigest);
+        Log.v(TAG, "Provided digest: " + md5);
+ 
+        return calculatedDigest.equalsIgnoreCase(md5);
+    }
+ 
+    public static String calculateMD5(File updateFile) {
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            Log.e(TAG, "Exception while getting digest", e);
+            return null;
+        }
+ 
+        InputStream is;
+        try {
+            is = new FileInputStream(updateFile);
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Exception while getting FileInputStream", e);
+            return null;
+        }
+ 
+        byte[] buffer = new byte[8192];
+        int read;
+        try {
+            while ((read = is.read(buffer)) &gt; 0) {
+                digest.update(buffer, 0, read);
+            }
+            byte[] md5sum = digest.digest();
+            BigInteger bigInt = new BigInteger(1, md5sum);
+            String output = bigInt.toString(16);
+            // Fill to 32 chars
+            output = String.format("%32s", output).replace(' ', '0');
+            return output;
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to process file for MD5", e);
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                Log.e(TAG, "Exception on closing MD5 input stream", e);
+            }
+        }
+    }
+}
+</code></pre></div></div>
+
+:ET

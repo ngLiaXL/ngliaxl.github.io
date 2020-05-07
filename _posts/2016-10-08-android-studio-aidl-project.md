@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Android]	AndroidStudio创建AIDL工程"
+title:  "[Android]	AIDL with AndroidStudio"
 date:   2016-10-08 11:53:27 +0800
 categories: android
 ---
