@@ -1,6 +1,0 @@
-I"^<ul>
-  <li>adb kill-server</li>
-  <li>adb start-server</li>
-  <li>adb remount</li>
-</ul>
-:ET

@@ -1,2 +1,0 @@
-I"�<p>Android视频播放通常的做法是MediaPlayer+SurfaceView,在电视上会出现切换视频间隙短暂黑屏现象，修改为MediaPlayer+TextureView，在开启硬件加速的窗口中使用，会解决此问题</p>
-:ET
