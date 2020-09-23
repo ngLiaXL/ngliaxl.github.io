@@ -1,9 +1,9 @@
-I"�'<p>针对Rxjava2的简单封装<code class="highlighter-rouge">switchThread</code>
-<code class="highlighter-rouge">map</code>
-<code class="highlighter-rouge">concatMap </code>
-<code class="highlighter-rouge">zip</code>等操作</p>
+I"G(<p>针对Rxjava2的简单封装<code class="language-plaintext highlighter-rouge">switchThread</code>
+<code class="language-plaintext highlighter-rouge">map</code>
+<code class="language-plaintext highlighter-rouge">concatMap </code>
+<code class="language-plaintext highlighter-rouge">zip</code>等操作</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**
  * Created by ngliaxl on 2018/4/9.
  *
  *         SimpleRxJava2.create(new SimpleRxJava2.EmitterCallback&lt;String&gt;() {

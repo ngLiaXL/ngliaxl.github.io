@@ -1,10 +1,10 @@
-I"�<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>动态类型，静态类型
+I"|<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>动态类型，静态类型
 强类型，弱类型
 编译型，解释型
 </code></pre></div></div>
 
 <h3 id="ntp">NTP</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://blog.csdn.net/dawnwang/article/details/1768516
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://blog.csdn.net/dawnwang/article/details/1768516
 网络延迟计算
 客户端发送请求时间T1
 服务端接收到请求时间T2
@@ -23,7 +23,7 @@
 <h3 id="memcached">Memcached</h3>
 
 <h3 id="io多路复用">IO多路复用</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一种方法就是最传统的多进程并发模型 (每进来一个新的I/O流会分配一个新的进程管理。)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一种方法就是最传统的多进程并发模型 (每进来一个新的I/O流会分配一个新的进程管理。)
 第二种方法就是I/O多路复用 (单个线程，通过记录跟踪每个I/O流(sock)的状态，来同时管理多个I/O流 。)
 
 I/O多路复用的优势并不是对于单个连接能处理的更快，而是在于可以在单个线程/进程中处理更多的连接。
@@ -41,7 +41,7 @@ select poll epoll
 <p>dxdiag</p>
 
 <h3 id="kotlin">kotlin</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>高阶函数
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>高阶函数
 密封类
 解构
 lambda 
@@ -70,7 +70,7 @@ lambda
 	val consumer3 : Consumer<Burger> = American()</Burger></Burger></Burger></Food></Food></Food></p>
 
 <h3 id="注解">注解</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>运行时注解（反射）
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>运行时注解（反射）
 	IntDef和StringDef注解；替代枚举
 	资源类型注解；
 	Null注解；
@@ -82,7 +82,7 @@ lambda
 </code></pre></div></div>
 
 <h3 id="epoll">epoll</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>用户空间
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>用户空间
 内核空间
 	内核空间--内核的缓冲区--用户空间
 
@@ -96,7 +96,7 @@ IO多路复用
 <h3 id="tcp协议">TCP协议？</h3>
 
 <h3 id="设计模式">设计模式</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>用抽象构建框架，用实现扩展细节
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>用抽象构建框架，用实现扩展细节
 单一职责原则
 	不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。
 开闭原则
@@ -114,7 +114,7 @@ IO多路复用
 <h3 id="netty">netty</h3>
 
 <h3 id="前后端">前后端</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Html,XHtml,Html5,CSS,JavaScript,jQuery 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Html,XHtml,Html5,CSS,JavaScript,jQuery 
 源码 
 freeCodeCamps
 

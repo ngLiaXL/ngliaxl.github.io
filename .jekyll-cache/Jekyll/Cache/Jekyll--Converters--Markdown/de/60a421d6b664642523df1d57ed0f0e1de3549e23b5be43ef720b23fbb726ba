@@ -1,7 +1,0 @@
-I"<h3 id="协议">协议</h3>
-<p>请求和响应头中增加</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept-Encoding: gzip
-Content-Encodin:gzip
-</code></pre></div></div>
-<p>确定客户端或服务器端是否支持压缩</p>
-:ET

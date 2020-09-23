@@ -1,8 +1,8 @@
-I"K<h3 id="使用命令直接查看">使用命令直接查看</h3>
+I"q<h3 id="使用命令直接查看">使用命令直接查看</h3>
 
-<p><code class="highlighter-rouge">gradle :app:dependencies --configuration releaseCompileClasspath</code></p>
+<p><code class="language-plaintext highlighter-rouge">gradle :app:dependencies --configuration releaseCompileClasspath</code></p>
 
-<p><code class="highlighter-rouge">gradle :app:dependencyInsight --dependency 'your particular dependency(or dependencies)'  --configuration releaseCompileClasspath</code></p>
+<p><code class="language-plaintext highlighter-rouge">gradle :app:dependencyInsight --dependency 'your particular dependency(or dependencies)'  --configuration releaseCompileClasspath</code></p>
 
 <h3 id="项目gradle文件中增加-dependencyreporttask-task">项目gradle文件中增加 DependencyReportTask task</h3>
 

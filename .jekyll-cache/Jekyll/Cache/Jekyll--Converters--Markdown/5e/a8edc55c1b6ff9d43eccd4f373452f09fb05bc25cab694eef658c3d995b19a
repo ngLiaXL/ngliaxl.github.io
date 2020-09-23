@@ -1,6 +1,6 @@
-I"#<h3 id="adb-pullbat">adb-pull.bat</h3>
+I"\<h3 id="adb-pullbat">adb-pull.bat</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rd /s /q databases
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rd /s /q databases
 pause
 adb shell "su -c 'cp -r /data/data/com.xxx.xxx/databases /mnt/sdcard'"
 adb pull /mnt/sdcard/databases
@@ -10,7 +10,7 @@ pause
 
 <h3 id="databasesbat">databases.bat</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rd /s /q databases
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rd /s /q databases
 
 ::pause
 adb shell &lt; cmd.txt
@@ -20,7 +20,7 @@ adb shell rm -r /mnt/sdcard/databases
 
 <h3 id="cmdtxt">cmd.txt</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su
 cp -r /data/data/com.eascs.iretail/databases /mnt/sdcard
 exit
 exit

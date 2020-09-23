@@ -1,4 +1,4 @@
-I"}<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class KeepAliveService extends JobService {
+I"£<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class KeepAliveService extends JobService {
 
     private static final String TAG = "KeepAliveService";
 
@@ -89,7 +89,7 @@
 }
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;service
      android:name=".service.KeepAliveService"
      android:exported="true"
      android:permission="android.permission.BIND_JOB_SERVICE"

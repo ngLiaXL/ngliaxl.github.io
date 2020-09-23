@@ -1,4 +1,4 @@
-I"…<p>```
+I"˜<p>```
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -22,7 +22,7 @@ android {
             signingConfig signingConfigs.release
         }</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>}
 flavorDimensions "default"
 productFlavors {
     baidu {dimension "default"}

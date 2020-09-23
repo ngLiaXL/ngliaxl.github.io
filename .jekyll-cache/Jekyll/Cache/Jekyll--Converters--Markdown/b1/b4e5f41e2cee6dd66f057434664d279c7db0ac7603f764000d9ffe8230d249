@@ -1,4 +1,4 @@
-I"}<p>记录一下云服务器上如何搭建WEB环境，我是在<a href="https://console.qingcloud.com/">青云</a>上申请的虚拟主机
+I";<p>记录一下云服务器上如何搭建WEB环境，我是在<a href="https://console.qingcloud.com/">青云</a>上申请的虚拟主机
 其他云服务器大同小异</p>
 
 <h3 id="1创建一台主机">1、创建一台主机</h3>
@@ -32,22 +32,22 @@
 <h3 id="4安装jdk">4、安装JDK</h3>
 <ul>
   <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">下载</a>Linux64版本的JDK</li>
-  <li>使用SSH上传并解压JDK文件<code class="highlighter-rouge">tar zxvf jdk1.8.0_191.tar</code> 解压到<code class="highlighter-rouge">/usr/local/java/</code></li>
-  <li>设置环境变量 <code class="highlighter-rouge">#vi /etc/profile</code>
+  <li>使用SSH上传并解压JDK文件<code class="language-plaintext highlighter-rouge">tar zxvf jdk1.8.0_191.tar</code> 解压到<code class="language-plaintext highlighter-rouge">/usr/local/java/</code></li>
+  <li>设置环境变量 <code class="language-plaintext highlighter-rouge">#vi /etc/profile</code>
 用vi打开文件后，找到要插入的位置，按下小写字母o，添加下面变量
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_191
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_191
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 </code></pre></div>    </div>
     <p>修改完成后，按esc后，输入:wq，进行保存
-保存后如果想即时生效，需要输入命令<code class="highlighter-rouge">#source /etc/profile</code>，否则只有等下次启动系统时才会生效
+保存后如果想即时生效，需要输入命令<code class="language-plaintext highlighter-rouge">#source /etc/profile</code>，否则只有等下次启动系统时才会生效
 查看所有环境变量，输入命令env。查看单个环境变量，输入命令echo $CSDN_NAME。</p>
     <h3 id="5安装tomcat">5、安装Tomcat</h3>
   </li>
   <li><a href="https://tomcat.apache.org/download-90.cgi">下载tar.gz</a></li>
-  <li>使用SSH上传并解压Tomcat文件<code class="highlighter-rouge">tar zxvf apache-tomcat-9.0.14.tar.gz</code> 解压到<code class="highlighter-rouge">/usr/local/tomcat/</code></li>
-  <li>启动tomcat cd到bin目录；执行 <code class="highlighter-rouge">./startup.sh</code>;日志查看cd到logs文件夹<code class="highlighter-rouge">tail -f catalina.out</code></li>
-  <li>浏览器访问<code class="highlighter-rouge">公网IP+:8080/</code>出现如下页面启动成功</li>
+  <li>使用SSH上传并解压Tomcat文件<code class="language-plaintext highlighter-rouge">tar zxvf apache-tomcat-9.0.14.tar.gz</code> 解压到<code class="language-plaintext highlighter-rouge">/usr/local/tomcat/</code></li>
+  <li>启动tomcat cd到bin目录；执行 <code class="language-plaintext highlighter-rouge">./startup.sh</code>;日志查看cd到logs文件夹<code class="language-plaintext highlighter-rouge">tail -f catalina.out</code></li>
+  <li>浏览器访问<code class="language-plaintext highlighter-rouge">公网IP+:8080/</code>出现如下页面启动成功</li>
 </ul>
 
 <p><img src="/img/web/web-img-07.jpg" alt="" /></p>

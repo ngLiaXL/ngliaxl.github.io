@@ -1,13 +1,13 @@
-I"�<h3 id="1安装nodejs">1、安装<a href="https://nodejs.org/en/download/">nodejs</a></h3>
+I"e<h3 id="1安装nodejs">1、安装<a href="https://nodejs.org/en/download/">nodejs</a></h3>
 
 <p>在nodejs的安装目录下，新建 node_global和 node_cache 两个文件夹
 设置nodejs prefix（全局）和cache（缓存）</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm config set cache your node_cache path
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm config set cache your node_cache path
 npm config set prefix your nodejs ROOT path
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NODEJS_HOME=C:\app\node-v10.15.3-win-x64
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NODEJS_HOME=C:\app\node-v10.15.3-win-x64
 path
 %NODEJS_HOME%\
 %NODEJS_HOME%\node_global
@@ -15,11 +15,11 @@ path
 
 <h3 id="2安装vue-cli">2、安装vue cli</h3>
 
-<p><code class="highlighter-rouge">npm install -g @vue/cli</code></p>
+<p><code class="language-plaintext highlighter-rouge">npm install -g @vue/cli</code></p>
 
 <h3 id="3新建项目">3、新建项目</h3>
 
-<p><code class="highlighter-rouge">vue create your project name</code>或 <code class="highlighter-rouge">vue ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">vue create your project name</code>或 <code class="language-plaintext highlighter-rouge">vue ui</code></p>
 
 <p>按下图依次选择
 <img src="/assets/vue-6.png" alt="" /></p>
@@ -31,6 +31,6 @@ path
 <p>index.html–&gt;main.js–&gt;App.vue–&gt;router.js …</p>
 
 <h3 id="5启动项目">5、启动项目</h3>
-<p><code class="highlighter-rouge">npm run serve</code></p>
+<p><code class="language-plaintext highlighter-rouge">npm run serve</code></p>
 
 :ET

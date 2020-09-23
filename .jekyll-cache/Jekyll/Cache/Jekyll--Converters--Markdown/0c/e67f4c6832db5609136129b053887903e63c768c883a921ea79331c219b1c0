@@ -1,4 +1,4 @@
-I"P<p>An OkHttp interceptor for signing requests with AWSv4 signatures</p>
+I"�<p>An OkHttp interceptor for signing requests with AWSv4 signatures</p>
 
 <p><a href="https://docs.aws.amazon.com/zh_cn/general/latest/gr/sigv4_signing.html">官方文档地址</a></p>
 
@@ -13,12 +13,12 @@
     <p>在NDK中通过反射解密Key</p>
   </li>
   <li>生成.h 文件
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\java&gt;javah -jni com.ngliaxl.signer.Keys
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\java&gt;javah -jni com.ngliaxl.signer.Keys
 </code></pre></div>    </div>
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\jni
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\jni
 	Android.mk
 	Application.mk
 	Keys.cpp
@@ -27,7 +27,7 @@
 
 <ul>
   <li>Android.mk
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOCAL_PATH:=$(call my-dir)
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOCAL_PATH:=$(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_MODULE := Keys
 LOCAL_SRC_FILES := Keys.cpp
@@ -35,7 +35,7 @@ include $(BUILD_SHARED_LIBRARY)
 </code></pre></div>    </div>
   </li>
   <li>Application.mk
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>APP_ABI := all
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>APP_ABI := all
 </code></pre></div>    </div>
   </li>
   <li>
@@ -45,7 +45,7 @@ include $(BUILD_SHARED_LIBRARY)
     <p>com_ngliaxl_signer_Keys.h</p>
   </li>
   <li>编译
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\jni&gt;ndk-build
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\jni&gt;ndk-build
 </code></pre></div>    </div>
   </li>
 </ul>

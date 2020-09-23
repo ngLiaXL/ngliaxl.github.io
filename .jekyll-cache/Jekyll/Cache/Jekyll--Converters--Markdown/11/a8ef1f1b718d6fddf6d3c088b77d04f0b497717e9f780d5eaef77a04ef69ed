@@ -1,4 +1,4 @@
-I"!<h3 id="1创建用户池">1、创建用户池</h3>
+I"4<h3 id="1创建用户池">1、创建用户池</h3>
 <p>用户池可以注册登陆服务，使用第三方社交登陆，配合身份池来授权用户能否使用AWS的服务。本文不使用任何类型的身份验证，可以忽略此步骤，如有需要可以访问如下链接使用身份池来验证身份。
 <a href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/cognito-user-identity-pools.html">如何创建用户池</a></p>
 
@@ -59,7 +59,7 @@
 
 <h3 id="9开发中遇到的问题">9、开发中遇到的问题</h3>
 <ul>
-  <li>断网重连需设置<code class="highlighter-rouge">mqttManager.setAutoReconnect(true); mqttManager.setMaxAutoReconnectAttempts(Integer.MAX_VALUE);</code></li>
+  <li>断网重连需设置<code class="language-plaintext highlighter-rouge">mqttManager.setAutoReconnect(true); mqttManager.setMaxAutoReconnectAttempts(Integer.MAX_VALUE);</code></li>
   <li>证书下载考虑到失败的场景需要做容错处理</li>
   <li>初始化的clientId保证唯一，否则会有互相踢掉的情况。</li>
   <li>采用匿名身份来访问AWS服务并不安全，建议使用身份验证来访问服务。</li>

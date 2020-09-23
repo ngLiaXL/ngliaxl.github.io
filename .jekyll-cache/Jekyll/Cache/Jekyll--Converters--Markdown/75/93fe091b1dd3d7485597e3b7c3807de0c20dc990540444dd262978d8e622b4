@@ -1,13 +1,13 @@
-I"z<h3 id="dos窗口录入命令">DOS窗口录入命令</h3>
-<p><code class="highlighter-rouge">setx /M PUB_HOSTED_URL https://pub.flutter-io.cn&amp;&amp;setx /M FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn</code></p>
+I"�<h3 id="dos窗口录入命令">DOS窗口录入命令</h3>
+<p><code class="language-plaintext highlighter-rouge">setx /M PUB_HOSTED_URL https://pub.flutter-io.cn&amp;&amp;setx /M FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn</code></p>
 
 <p><img src="/assets/flutter-img01.png" alt="" /></p>
 
 <h3 id="flutter官网下载其最新可用的安装包点击下载">flutter官网下载其最新可用的安装包，<a href="https://flutter.io/docs/development/tools/sdk/archive#windows">点击下载</a></h3>
-<p>解压到指定路径<code class="highlighter-rouge">D:\work\flutter\flutter</code></p>
+<p>解压到指定路径<code class="language-plaintext highlighter-rouge">D:\work\flutter\flutter</code></p>
 
 <h3 id="设置环境变量">设置环境变量</h3>
-<p><code class="highlighter-rouge">D:\work\flutter\flutter\bin</code>添加到path</p>
+<p><code class="language-plaintext highlighter-rouge">D:\work\flutter\flutter\bin</code>添加到path</p>
 
 <h3 id="androidstudio安装flutter和dart插件">AndroidStudio安装Flutter和Dart插件</h3>
 <p>…</p>

@@ -1,5 +1,5 @@
-I"�<h3 id="1配置依赖包">1、配置依赖包</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    // Room
+I"R<h3 id="1配置依赖包">1、配置依赖包</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    // Room
     def room_version = "1.1.0"
     api "android.arch.persistence.room:runtime:$room_version"
     api("android.arch.persistence.room:compiler:$room_version") {
@@ -9,7 +9,7 @@
 
 <h3 id="2继承roomdatabase">2、继承RoomDatabase</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@android.arch.persistence.room.Database(
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@android.arch.persistence.room.Database(
         entities = {
                 PosUserT.class,
 
@@ -48,11 +48,11 @@ public abstract class Database extends RoomDatabase {
 }
 
 </code></pre></div></div>
-<p><code class="highlighter-rouge">allowMainThreadQueries()</code>方法可以设置在UI线程操作数据库
-<code class="highlighter-rouge">addMigrations()</code>数据库版本升级</p>
+<p><code class="language-plaintext highlighter-rouge">allowMainThreadQueries()</code>方法可以设置在UI线程操作数据库
+<code class="language-plaintext highlighter-rouge">addMigrations()</code>数据库版本升级</p>
 
 <h3 id="3建表">3、建表</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Entity(tableName = "pos_user_t")
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Entity(tableName = "pos_user_t")
 public class PosUserT {
 
     @NonNull
@@ -66,7 +66,7 @@ public class PosUserT {
 </code></pre></div></div>
 
 <h3 id="4自定义dao接口">4、自定义DAO接口</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Dao
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Dao
 public interface UserDao extends BaseDao {
 
     @Query("SELECT user_password FROM pos_user_t WHERE user_code = :userCode")
@@ -91,7 +91,7 @@ public interface UserDao extends BaseDao {
 
 <h3 id="5使用">5、使用</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Database.getInstance(context).getUserDao().insert();
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Database.getInstance(context).getUserDao().insert();
 </code></pre></div></div>
 
 :ET

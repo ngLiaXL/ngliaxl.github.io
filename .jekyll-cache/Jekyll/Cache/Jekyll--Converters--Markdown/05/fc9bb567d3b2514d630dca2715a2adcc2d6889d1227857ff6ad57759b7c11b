@@ -1,4 +1,4 @@
-I"o<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+I"‚<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 // test functions
 Utils.getMACAddress("wlan0");
 Utils.getMACAddress("eth0");

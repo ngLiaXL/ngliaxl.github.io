@@ -1,6 +1,6 @@
-I"<h3 id="协议">协议</h3>
+I"g<h3 id="协议">协议</h3>
 <p>请求和响应头中增加</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept-Encoding: gzip
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept-Encoding: gzip
 Content-Encodin:gzip
 </code></pre></div></div>
 <p>确定客户端或服务器端是否支持压缩</p>
@@ -19,10 +19,10 @@ Content-Encodin:gzip
   </li>
 </ul>
 
-<p>客户端也可以发送压缩数据给服务端，通过代码将请求数据压缩即可，规范起见同样要在请求中加入<code class="highlighter-rouge">Content-Encodin:gzip</code></p>
+<p>客户端也可以发送压缩数据给服务端，通过代码将请求数据压缩即可，规范起见同样要在请求中加入<code class="language-plaintext highlighter-rouge">Content-Encodin:gzip</code></p>
 
 <h3 id="okhttp压缩数据">OkHttp压缩数据</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private RequestBody gzip(final RequestBody body) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private RequestBody gzip(final RequestBody body) {
         return new RequestBody() {
             @Override
             public MediaType contentType() {
@@ -59,7 +59,7 @@ Content-Encodin:gzip
 <p>通过BridgeInterceptor类拦截响应，自动处理gzip解压</p>
 
 <h3 id="通过gzipoutputstreamgzipinputstream压缩和解压">通过GZIPOutputStream、GZIPInputStream压缩和解压</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static byte[] compress(String str) throws IOException {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static byte[] compress(String str) throws IOException {
         try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             try (GZIPOutputStream gzip = new GZIPOutputStream(out)) {
                 gzip.write(str.getBytes(StandardCharsets.UTF_8));

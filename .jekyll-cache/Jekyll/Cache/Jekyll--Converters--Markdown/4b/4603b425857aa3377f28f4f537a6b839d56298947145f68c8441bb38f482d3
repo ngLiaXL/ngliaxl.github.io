@@ -1,5 +1,5 @@
-I"�
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static boolean isInBackground(Context context) {
+I"�
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static boolean isInBackground(Context context) {
 
         boolean isInBackground = true;
 

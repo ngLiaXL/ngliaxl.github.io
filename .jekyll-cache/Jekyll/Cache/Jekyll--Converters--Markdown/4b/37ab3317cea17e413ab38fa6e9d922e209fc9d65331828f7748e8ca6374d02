@@ -1,4 +1,4 @@
-I"·<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>android {
+I"Ê<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>android {
     compileSdkVersion 27
     defaultConfig {
         // ...

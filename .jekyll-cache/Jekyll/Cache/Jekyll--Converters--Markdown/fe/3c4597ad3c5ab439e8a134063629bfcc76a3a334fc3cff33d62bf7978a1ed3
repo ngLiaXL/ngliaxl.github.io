@@ -1,6 +1,6 @@
-I"k(<h3 id="remove-duplicates-from-a-list-of-objects-based-on-property">Remove duplicates from a list of objects based on property</h3>
+I"))<h3 id="remove-duplicates-from-a-list-of-objects-based-on-property">Remove duplicates from a list of objects based on property</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Wrapper&lt;T, U&gt; {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Wrapper&lt;T, U&gt; {
     private T t;
     private Function&lt;T, U&gt; equalityFunction;
 
@@ -34,7 +34,7 @@
 }
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static &lt;T, U&gt; void distinct(List&lt;T&gt; sourceList, Wrapper.Function&lt;T, U&gt; equalityFunction) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static &lt;T, U&gt; void distinct(List&lt;T&gt; sourceList, Wrapper.Function&lt;T, U&gt; equalityFunction) {
         List&lt;Wrapper&lt;T, U&gt;&gt; wrapperList = new ArrayList&lt;&gt;();
         for (T t : sourceList) {
             wrapperList.add(new Wrapper&lt;&gt;(t, equalityFunction));
@@ -53,7 +53,7 @@
 </code></pre></div></div>
 
 <h3 id="list多属性排序">List多属性排序</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MultiComparator&lt;T&gt; implements Comparator&lt;T&gt; {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MultiComparator&lt;T&gt; implements Comparator&lt;T&gt; {
 
     private final List&lt;Comparator&lt;T&gt;&gt; comparators;
 
@@ -85,7 +85,7 @@
 </code></pre></div></div>
 
 <h3 id="反射-drawable">反射 Drawable</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	private int getDrawableByReflect(String field) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	private int getDrawableByReflect(String field) {
 		int drawable = 0;
 		// "cn.testreflect.R$drawable"
 		String pkg = MainApplication.getContext().getPackageName();
@@ -100,7 +100,7 @@
 	}
 </code></pre></div></div>
 <h3 id="位运算运用-权限">位运算运用-权限</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Permission {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Permission {
 
     public static final int READ = 1 &lt;&lt; 0; // 0001
 
@@ -155,7 +155,7 @@
 </code></pre></div></div>
 
 <h3 id="assets-copy">Assets copy</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private void copyAssets() {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private void copyAssets() {
         AssetManager assetManager = getAssets();
         String[] files = null;
         try {
@@ -202,7 +202,7 @@
 </code></pre></div></div>
 
 <h3 id="get-the-process-name">Get the process name</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName(Context cxt, int pid) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName(Context cxt, int pid) {
     ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
     List&lt;ActivityManager.RunningAppProcessInfo&gt; runningApps = null;
     if (am != null) {
@@ -221,7 +221,7 @@
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName() {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static String getProcessName() {
   try {
     File file = new File("/proc/" + android.os.Process.myPid() + "/" + "cmdline");
     BufferedReader mBufferedReader = new BufferedReader(new FileReader(file));
@@ -236,7 +236,7 @@
 </code></pre></div></div>
 
 <h3 id="copy-file">Copy File</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static void copy(File src, File dst) throws IOException {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static void copy(File src, File dst) throws IOException {
         InputStream in = new FileInputStream(src);
         try {
             OutputStream out = new FileOutputStream(dst);
@@ -257,7 +257,7 @@
 </code></pre></div></div>
 
 <h3 id="md5">MD5</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MD5 {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MD5 {
     private static final String TAG = "MD5";
  
     public static boolean checkMD5(String md5, File updateFile) {

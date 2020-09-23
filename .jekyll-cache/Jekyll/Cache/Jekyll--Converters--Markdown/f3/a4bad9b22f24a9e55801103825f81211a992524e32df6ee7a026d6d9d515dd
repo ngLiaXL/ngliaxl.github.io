@@ -1,8 +1,8 @@
-I"�<p>通过修改CATALINA_BASE实现Tomcat多实例或分目录部署</p>
+I"�<p>通过修改CATALINA_BASE实现Tomcat多实例或分目录部署</p>
 
 <h3 id="1下载tomcat">1、下载Tomcat</h3>
 
-<p><code class="highlighter-rouge">CATALINA_HOME=your tomcat install path</code></p>
+<p><code class="language-plaintext highlighter-rouge">CATALINA_HOME=your tomcat install path</code></p>
 
 <h3 id="2复制conflogstempwebappswork到指定新实例路径tomcat-ins">2、复制conf、logs、temp、webapps、work到指定新实例路径tomcat-ins</h3>
 
@@ -11,7 +11,7 @@
 <h3 id="3新建tomcat启动文件">3、新建Tomcat启动文件</h3>
 
 <p>tomcat.bat</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Tomcat 特定实例运行时配置的根
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Tomcat 特定实例运行时配置的根
 set "CATALINA_BASE=%cd%"
 
 # Tomcat 安装目录（环境变量已经设置）
