@@ -1,0 +1,119 @@
+I"<p><a href="http://docs.jiguang.cn/jverification/client/client_plugins/">极光认证官方文档</a></p>
+
+<h1 id="1极光官网创建应用">1、<a href="https://www.jiguang.cn/dev2/#/overview/appCardList">极光官网创建应用</a></h1>
+
+<ul>
+  <li>Android 输入应用包名和签名，签名使用极光提供的APK 获取</li>
+  <li>iOS 输入Bundle ID</li>
+  <li>RSA 加密公钥</li>
+</ul>
+
+<h1 id="2rsa-生成秘钥对">2、RSA 生成秘钥对</h1>
+<ul>
+  <li>生成私钥
+<code class="language-plaintext highlighter-rouge">$ openssl genrsa -out rsa_private_key.pem 1024</code></li>
+  <li>私钥转换成pkcs8格式
+<code class="language-plaintext highlighter-rouge">$ openssl pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM -nocrypt -out pkcs8.pem</code></li>
+  <li>生成公钥
+<code class="language-plaintext highlighter-rouge">$ openssl rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem</code></li>
+</ul>
+
+<p>将<code class="language-plaintext highlighter-rouge">rsa_public_key.pem</code>内容复制到极光官网配置<code class="language-plaintext highlighter-rouge">RSA 加密公钥</code>，注意去掉头尾和中间换行符</p>
+
+<h1 id="3运行demo">3、运行demo</h1>
+
+<p>按照官网文档配置如下</p>
+<h3 id="1-安装">1. 安装</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install jverification-react-native --save
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>注意：如果项目里没有jcore-react-native，需要安装</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install jcore-react-native --save
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="2-配置">2. 配置</h3>
+
+<h4 id="21-android">2.1 Android</h4>
+
+<ul>
+  <li>
+    <p>build.gradle</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>android {
+      defaultConfig {
+          applicationId "yourApplicationId"           //在此替换你的应用包名
+          ...
+          manifestPlaceholders = [
+                  JPUSH_APPKEY: "yourAppKey",         //在此替换你的APPKey
+                  JPUSH_CHANNEL: "yourChannel"        //在此替换你的channel
+          ]
+      }
+  }
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
+      ...
+      implementation project(':jverification-react-native') // 添加 jverification 依赖
+      implementation project(':jcore-react-native')         // 添加 jcore 依赖
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>setting.gradle</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include ':jverification-react-native'
+project(':jverification-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/jverification-react-native/android')
+include ':jcore-react-native'
+project(':jcore-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/jcore-react-native/android')
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="22-ios">2.2 iOS</h4>
+
+<h5 id="221-pod">2.2.1 pod</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod install
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>注意：如果项目里使用pod安装过，请先执行命令</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pod deintegrate
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h5 id="222-配置appkey">2.2.2 配置AppKey</h5>
+
+<ul>
+  <li>App.js
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const initParams = {
+  'time': 5000,
+  'appKey': 'yourAppKey',               //仅iOS
+  'channel': 'channel',                 //仅iOS
+  'advertisingId': 'advertisingId',     //仅iOS
+  'isProduction': false,                //仅iOS
+};
+</code></pre></div>    </div>
+    <h1 id="4验证token">4、验证Token</h1>
+  </li>
+  <li>客户端通过<code class="language-plaintext highlighter-rouge">JVerification.login</code>方法获取loginToken</li>
+  <li>客户端通过调用开发者服务器提供的接口去调用极光REST API <code class="language-plaintext highlighter-rouge">loginTokenVerify</code> 验证手机号码</li>
+</ul>
+
+<h1 id="5遇到的问题">5、遇到的问题</h1>
+<ul>
+  <li>V2.0.0 版本Android 无法替换登录按钮的样式，只能手动修改node_modules <code class="language-plaintext highlighter-rouge">jverification-react-native</code> 资源文件</li>
+  <li>登录按钮位置无法修改</li>
+  <li>Android Applicaiton getPackages 增加  `new cn.jiguang.plugins.verification.JVerificationPackage()</li>
+</ul>
+
+:ET
