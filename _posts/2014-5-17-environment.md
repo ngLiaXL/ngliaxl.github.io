@@ -24,15 +24,6 @@ CLASS_PATH					.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 ```
 
 
-
-### Tomcat
-[下载地址](http://tomcat.apache.org/)
-### Intellij IDEA
-[下载地址](https://www.jetbrains.com/idea/)
-
-
-
-
 ### Android Studio
 [下载地址](https://developer.android.google.cn/studio/index.html)
 
@@ -79,9 +70,26 @@ Font
 #### .gradle 文件夹修改  
 `安装完成打开设置 Build -->Build Tools -->Gradle 选择Service directory path`
 
+### MAC ENV
 
-### WebStorm
-[下载地址](https://www.jetbrains.com/webstorm/)
+```
+# Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH:.
+export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
+# Android
+export ANDROID_SDK_ROOT=/Users/xianglong.liang/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export AAPT_HOME=~/Library/Android/sdk/build-tools/30.0.2
+export PATH=$PATH:$AAPT_HOME  
+# HomeBrew
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+# HomeBrew END
+```
+
 ### NodeJs
 [下载地址](https://nodejs.org/en/)
 
@@ -106,27 +114,6 @@ npm config set prefix "...\nodejs\node_global"
 npm install -g cnpm --registry=https://registry.npm.taobao.org 
 cnpm install vue -g
 cnpm install vue-cli -g
-```
-
-
-
-
-### TortoiseSVN
-[下载地址](https://tortoisesvn.net/downloads.html)
-```
-D:\app\TortoiseSVN\bin;
-```
-### Git
-[下载地址](https://git-scm.com/downloads)
-
-```
-D:\app\Git\cmd;
-```
-
-### SQLite Expert
-### MySql
-```
-D:\work\web\mysql-5.5.31-winx64\bin;
 ```
 
 

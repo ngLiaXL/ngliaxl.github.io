@@ -1,0 +1,115 @@
+I"<h3 id="java">Java</h3>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">下载地址</a></p>
+
+<p>安装目录</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--jdk1.8.0_101
+--jre8
+</code></pre></div></div>
+
+<p>环境变量</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JAVA_HOME					D:\app\Java\jdk1.8.0_101
+CLASS_PATH					.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+%JAVA_HOME%\bin;
+%JAVA_HOME%\jre\bin;
+</code></pre></div></div>
+
+<h3 id="mac-env">MAC ENV</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH:.
+export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
+# Android
+export ANDROID_SDK_ROOT=/Users/xianglong.liang/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export AAPT_HOME=/Users/xianglong.liang/Library/Android/sdk/build-tools/30.0.2
+export PATH=$PATH:$AAPT_HOME  
+# HomeBrew
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+# HomeBrew END
+</code></pre></div></div>
+
+<h3 id="tomcat">Tomcat</h3>
+<p><a href="http://tomcat.apache.org/">下载地址</a></p>
+<h3 id="intellij-idea">Intellij IDEA</h3>
+<p><a href="https://www.jetbrains.com/idea/">下载地址</a></p>
+
+<h3 id="android-studio">Android Studio</h3>
+<p><a href="https://developer.android.google.cn/studio/index.html">下载地址</a></p>
+
+<p>环境变量</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GRADLE_HOME					D:\.gradle\wrapper\dists\gradle-4.1-all\bzyivzo6n839fup2jbap0tjew\gradle-4.1
+%GRADLE_HOME%/bin;
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ANDROID_SDK_ROOT
+	C:\app\androidsdk
+Path
+	%ANDROID_SDK_ROOT%\platform-tools
+	%ANDROID_SDK_ROOT%\tools
+
+
+JAVA_HOME
+	C:\app\Java\jdk1.8.0_201
+Path
+%JAVA_HOME%\bin
+%JAVA_HOME%\jre\bin
+</code></pre></div></div>
+
+<p>自定义字体等</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Font
+	Setting--Apperance&amp;Behavior
+		Override default fonts by(not recommended) Size 16
+	Editor--Font Size 16
+	Editor--Color Scheme--General--Text--Default Text Bold
+</code></pre></div></div>
+
+<h4 id="androidstudio文件夹的修改">.AndroidStudio文件夹的修改</h4>
+<p>进入Android Studio的安装目录，进入bin文件夹，用文本编辑软件打开idea.properties参考下图修改
+<img src="/assets/tools-img01.png" alt="" /></p>
+
+<h4 id="gradle-文件夹修改">.gradle 文件夹修改</h4>
+<p><code class="language-plaintext highlighter-rouge">安装完成打开设置 Build --&gt;Build Tools --&gt;Gradle 选择Service directory path</code></p>
+
+<h3 id="webstorm">WebStorm</h3>
+<p><a href="https://www.jetbrains.com/webstorm/">下载地址</a></p>
+<h3 id="nodejs">NodeJs</h3>
+<p><a href="https://nodejs.org/en/">下载地址</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:\work\nodejs\;
+D:\work\nodejs\node_global;
+</code></pre></div></div>
+
+<h4 id="设置-cache-global">设置 cache global</h4>
+<p>在nodejs的安装目录下，新建node_global和node_cache两个文件夹</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm config set cache "...\nodejs\node_cache"
+</code></pre></div></div>
+
+<h4 id="设置global和cache">设置global和cache</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm config set prefix "...\nodejs\node_global"
+</code></pre></div></div>
+<h4 id="安装vue">安装VUE</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g cnpm --registry=https://registry.npm.taobao.org 
+cnpm install vue -g
+cnpm install vue-cli -g
+</code></pre></div></div>
+
+<h3 id="tortoisesvn">TortoiseSVN</h3>
+<p><a href="https://tortoisesvn.net/downloads.html">下载地址</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:\app\TortoiseSVN\bin;
+</code></pre></div></div>
+<h3 id="git">Git</h3>
+<p><a href="https://git-scm.com/downloads">下载地址</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:\app\Git\cmd;
+</code></pre></div></div>
+
+<h3 id="sqlite-expert">SQLite Expert</h3>
+<h3 id="mysql">MySql</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:\work\web\mysql-5.5.31-winx64\bin;
+</code></pre></div></div>
+
+:ET
