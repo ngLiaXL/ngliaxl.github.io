@@ -1,6 +1,0 @@
-I"2<p>$ cd <code class="language-plaintext highlighter-rouge">your eclipse install folder</code></p>
-
-<p>$ eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno -installIU org.eclipse.ant.ui
-    Installing org.eclipse.ant.ui 3.5.400.v20130514-1341.</p>
-
-:ET
