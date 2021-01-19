@@ -1,3 +1,0 @@
-I"k<h3 id="1下载jenkins">1、下载<a href="http://mirrors.jenkins.io/war-stable/latest/">Jenkins</a></h3>
-<p>直接下载.war文件，配置环境变量<code class="language-plaintext highlighter-rouge">JENKINS_HOME</code>，方便统一管理后期生成的文件，文件会在<code class="language-plaintext highlighter-rouge">JENKINS_HOME</code>下生成</p>
-:ET
