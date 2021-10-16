@@ -1,0 +1,52 @@
+I"�<h3 id="下载-fmw_121300_wlsjar-支持jdk18的稳定版本">下载 fmw_12.1.3.0.0_wls.jar 支持jdk1.8的稳定版本</h3>
+<p>Jdk1.8</p>
+
+<p>DOS窗口执行<code class="language-plaintext highlighter-rouge">java -jar  fmw_12.1.3.0.0_wls.jar</code>
+<img src="/assets/web-img08.png" alt="" /></p>
+
+<p>安装目录<code class="language-plaintext highlighter-rouge">\wlchome</code></p>
+
+<h3 id="新建域">新建域</h3>
+<p><img src="/assets/web-img09.png" alt="" /></p>
+
+<p>域目录<code class="language-plaintext highlighter-rouge">wlchome\user_projects\domains\easd</code></p>
+
+<h3 id="启动服务">启动服务</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wlchome\user_projects\domains\easd\bin\startWebLogic.cmd</code></p>
+
+<h3 id="测试服务">测试服务</h3>
+
+<p><code class="language-plaintext highlighter-rouge">localhost:7001/console/</code></p>
+
+<h3 id="安装带weblogic插件的eclipse">安装带weblogic插件的Eclipse</h3>
+<p>Eclipse weblogic server tools 插件eclipse版本4.7.1a oxygen</p>
+
+<p><a href="http://download.oracle.com/otn_software/oepe/oxygen/">下载地址</a>
+<img src="/assets/web-img10.png" alt="" /></p>
+
+<p>点开Tools下来菜单，选择Oracle Weblogic Server Tools，点击Next
+新建weblogic运行环境</p>
+
+<p><img src="/assets/web-img11.png" alt="" /></p>
+
+<h3 id="新建项目">新建项目</h3>
+<p><img src="/assets/web-img12.png" alt="" /></p>
+
+<h3 id="run-on-server">Run on server</h3>
+
+<p><img src="/assets/web-img13.png" alt="" /></p>
+
+<p>如遇到以下异常</p>
+
+<p><code class="language-plaintext highlighter-rouge">java.lang.OutOfMemoryError: GC overhead limit exceeded</code></p>
+
+<p>修改weblogic启动内存</p>
+
+<p><code class="language-plaintext highlighter-rouge">doman--setDomainEnv.cmd</code> 修改内存大小</p>
+
+<p><code class="language-plaintext highlighter-rouge">set WLS_MEM_ARGS_64BIT=-Xms512m -Xmx1024m</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">set WLS_MEM_ARGS_32BIT=-Xms512m -Xmx1024m</code></p>
+
+:ET

@@ -1,0 +1,168 @@
+I"<p>一些私密信息加密保存到so文件中，通过简单的反射机制解密信息防止so文件的盗用。</p>
+
+<h3 id="新建-safetykeysjava">新建 SafetyKeys.java</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package com.ngliaxl.safetykeys;
+
+public class SafetyKeys {
+
+    static {
+        System.loadLibrary("SafetyKeys");
+    }
+    public native String nativeAccessKey();
+
+}
+</code></pre></div></div>
+
+<h3 id="新建desjava-解密类">新建DES.java 解密类</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+import android.util.Base64;
+
+import java.io.IOException;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
+
+public class DES {
+
+
+    public static String encrypt(String str, String key) {
+        String encrypt = null;
+        try {
+            encrypt = jdkBase64String(encrypt2(str, key));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return encrypt;
+    }
+
+    public static String decrypt(String str, String key) {
+        String decrypt = null;
+        try {
+            decrypt = decrypt2(jdkBase64Decoder(str), key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return decrypt;
+    }
+
+
+    /**
+     * 使用DES对字符串加密
+     *
+     * @param str utf8编码的字符串
+     * @param key 密钥（56位，7字节）
+     */
+    public static byte[] encrypt2(String str, String key) throws Exception {
+        if (str == null || key == null) {
+            return null;
+        }
+        Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key.getBytes("utf-8"), "DES"));
+        byte[] bytes = cipher.doFinal(str.getBytes("utf-8"));
+        return bytes;
+    }
+
+    /**
+     * 使用DES对数据解密
+     *
+     * @param bytes utf8编码的二进制数据
+     * @param key   密钥（16字节）
+     * @return 解密结果
+     * @throws Exception
+     */
+    public static String decrypt2(byte[] bytes, String key) throws Exception {
+        if (bytes == null || key == null)
+            return null;
+        Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key.getBytes("utf-8"), "DES"));
+        bytes = cipher.doFinal(bytes);
+        return new String(bytes, "utf-8");
+    }
+
+    /**
+     * 使用base64解决乱码
+     *
+     * @param secretKey 加密后的字节码
+     */
+    public static String jdkBase64String(byte[] secretKey) {
+        return Base64.encodeToString(secretKey, Base64.DEFAULT);
+    }
+
+    /**
+     * 使用jdk的base64 解密字符串 返回为null表示解密失败
+     *
+     * @throws IOException
+     */
+    public static byte[] jdkBase64Decoder(String str) throws IOException {
+        return Base64.decode(str, Base64.DEFAULT);
+    }
+
+}
+</code></pre></div></div>
+
+<h3 id="生成h">生成.h</h3>
+
+<p>your project path\app\src\main\java&gt;<code class="language-plaintext highlighter-rouge">javah -jni com.ngliaxl.safetykeys.SafetyKeys</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>com_ngliaxl_safetykeys_SafetyKeys.h
+</code></pre></div></div>
+<p>your project path\app\src\main\ 新建<code class="language-plaintext highlighter-rouge">jni</code>文件夹
+将<code class="language-plaintext highlighter-rouge">com_ngliaxl_safetykeys_SafetyKeys.h</code>复制到<code class="language-plaintext highlighter-rouge">jni</code></p>
+
+<h3 id="新建cpp">新建.cpp</h3>
+
+<p><code class="language-plaintext highlighter-rouge">jni</code>文件夹下新建SafetyKeys.cpp</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;jni.h&gt;
+#include &lt;com_ngliaxl_safetykeys_SafetyKeys.h&gt;
+
+extern "C" {
+/*
+ * Class:     com_ngliaxl_safetykeys_SafetyKeys
+ * Method:    nativeAccessKey
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_ngliaxl_safetykeys_SafetyKeys_nativeAccessKey
+  (JNIEnv * env, jobject obj){
+ jclass des_class = env-&gt;FindClass("com/ngliaxl/safetykeys/DES");
+    if (env-&gt;ExceptionCheck()) {
+        env-&gt;ExceptionClear();
+      return NULL;
+    }
+
+    jmethodID decrypt_id = env-&gt;GetStaticMethodID(des_class, "decrypt", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+    if (env-&gt;ExceptionCheck()) {
+        env-&gt;ExceptionClear();
+      return NULL;
+    }
+    jstring access_key = env-&gt;NewStringUTF("urBJqAZ7vwf3KZT8UY7zTeDlQMT4hQRR");
+    jstring des_key = env-&gt;NewStringUTF("nullnull");
+
+    jstring decrypt_key = (jstring) env-&gt;CallStaticObjectMethod(des_class, decrypt_id, access_key,des_key);
+    if (env-&gt;ExceptionCheck()) {
+        env-&gt;ExceptionClear();
+      return NULL;
+    }
+    return decrypt_key;
+
+  }
+
+}
+</code></pre></div></div>
+
+<h3 id="新建-androidmk-applicationmk">新建 Android.mk Application.mk</h3>
+<p>Android.mk</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOCAL_PATH:=$(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_MODULE := SafetyKeys
+LOCAL_SRC_FILES := SafetyKeys.cpp
+LOCAL_LDLIBS := -llog
+include $(BUILD_SHARED_LIBRARY)
+</code></pre></div></div>
+<p>Application.mk</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>APP_ABI := all
+</code></pre></div></div>
+<p>###
+your project path\app\src\main\jni&gt;<code class="language-plaintext highlighter-rouge">ndk-build</code></p>
+
+:ET

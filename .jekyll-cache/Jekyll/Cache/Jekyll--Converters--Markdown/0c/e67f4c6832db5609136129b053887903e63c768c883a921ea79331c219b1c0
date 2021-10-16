@@ -1,0 +1,53 @@
+I"�<p>An OkHttp interceptor for signing requests with AWSv4 signatures</p>
+
+<p><a href="https://docs.aws.amazon.com/zh_cn/general/latest/gr/sigv4_signing.html">官方文档地址</a></p>
+
+<h3 id="拦截器">拦截器</h3>
+<p><a href="https://github.com/ngLiaXL/AWS4Signer">项目地址</a></p>
+
+<h3 id="保存key到so文件中">保存key到so文件中</h3>
+<ul>
+  <li>加密Key保存在so文件中</li>
+  <li>在NDK中通过反射Java API 校验签名</li>
+  <li>
+    <p>在NDK中通过反射解密Key</p>
+  </li>
+  <li>生成.h 文件
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\java&gt;javah -jni com.ngliaxl.signer.Keys
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\jni
+	Android.mk
+	Application.mk
+	Keys.cpp
+	com_ngliaxl_signer_Keys.h
+</code></pre></div></div>
+
+<ul>
+  <li>Android.mk
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOCAL_PATH:=$(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_MODULE := Keys
+LOCAL_SRC_FILES := Keys.cpp
+include $(BUILD_SHARED_LIBRARY)
+</code></pre></div>    </div>
+  </li>
+  <li>Application.mk
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>APP_ABI := all
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Keys.cpp</p>
+  </li>
+  <li>
+    <p>com_ngliaxl_signer_Keys.h</p>
+  </li>
+  <li>编译
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\app\src\main\jni&gt;ndk-build
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

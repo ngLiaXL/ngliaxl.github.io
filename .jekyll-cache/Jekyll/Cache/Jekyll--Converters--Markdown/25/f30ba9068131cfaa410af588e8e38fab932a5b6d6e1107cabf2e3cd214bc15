@@ -1,0 +1,3 @@
+I"�<h3 id="dos窗口录入命令">DOS窗口录入命令</h3>
+<p><code class="language-plaintext highlighter-rouge">setx /M PUB_HOSTED_URL https://pub.flutter-io.cn&amp;&amp;setx /M FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn</code></p>
+:ET

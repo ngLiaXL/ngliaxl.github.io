@@ -1,0 +1,13 @@
+I"�<h3 id="下载-intellij-idea">下载 <a href="https://www.jetbrains.com/idea/">Intellij IDEA</a></h3>
+<p>[https://www.jetbrains.com/idea/]</p>
+<h3 id="下载-tomcat源码">下载 <a href="https://github.com/apache/tomcat">Tomcat源码</a></h3>
+<p>配置环境变量<code class="language-plaintext highlighter-rouge">CATALINA_HOME=C:\work\tomcat</code></p>
+<h3 id="下载-apache-ant">下载 <a href="http://ant.apache.org/">Apache Ant</a></h3>
+<p>配置环境变量<code class="language-plaintext highlighter-rouge">ANT_HOME=C:\app\apache-ant-1.10.5</code></p>
+<h3 id="编译tomcat源码">编译Tomcat源码</h3>
+<p>tomcat根目录执行ant等待编译完成，启动bin目录下的startup.bat</p>
+<h3 id="导入idea">导入IDEA</h3>
+<p>编译时会缺失各种jar，到相关网站下载即可，一些jar在ant命令时已经下载，最后报一些junit相关的错误，可以直接移除test这个module</p>
+<h3 id="运行">运行</h3>
+<p>Run–&gt;Bootstrap.java 直接启动，不需要任何配置</p>
+:ET
