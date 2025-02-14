@@ -1,4 +1,4 @@
-I"5<ul>
+I"s<ul>
   <li>WeChat : 15040497030</li>
   <li>Email : <a href="mailto:ngliaxl@gmail.com">ngliaxl@gmail.com</a></li>
   <li>Blog : <a href="https://ngliaxl.github.io">ngliaxl.github.io</a></li>
@@ -8,7 +8,11 @@
 <h3 id="个人经历">个人经历</h3>
 <ul>
   <li>
-    <p><strong>2019/02—至今  埃森哲信息技术（大连）有限公司  阿里事业部</strong><br />
+    <p><strong>2020/10—至今  大连怡丰云智科技股份有限公司  信息中心</strong><br />
+负责前端项目研发</p>
+  </li>
+  <li>
+    <p><strong>2019/02—2020/9  埃森哲信息技术（大连）有限公司  阿里事业部</strong><br />
 负责KONE Safety Media Screen项目研发</p>
   </li>
   <li>
@@ -31,15 +35,34 @@
 
 <h3 id="专业技能">专业技能</h3>
 <ul>
-  <li>8年Android 开发经验</li>
-  <li>1年KJava 开发经验</li>
-  <li>熟悉主流的Android 开源组件和框架</li>
-  <li>熟悉Android Framework 系统架构</li>
-  <li>对移动应用的稳定性、可靠性及性能优化有一定的经验</li>
+  <li>8年Android开发经验</li>
+  <li>1年KJava开发经验</li>
+  <li>熟悉常见的Android应用开发框架</li>
+  <li>熟悉Android各版本API</li>
 </ul>
 
 <h3 id="项目经验">项目经验</h3>
 <ul>
+  <li>
+    <p><strong>2022/10—至今  怡通云-怡丰云智</strong><br />
+项目简介：<br />
+• 电商项目，功能包括商品展示、下单等 
+• 移动端混合开发，H5 使用Vue,移动端 Android  iOS 编写原生WebView壳工程，交互使用 JsBridge
+• Web 管理后台使用 React 
+• 小程序使用微信原生开发<br />
+职责：<br />
+• 负责项目开发及维护</p>
+  </li>
+  <li>
+    <p><strong>2020/10—2022/10  药购网-怡丰云智</strong><br />
+项目简介：<br />
+• 医疗电商项目，功能包括药品展示、销售、购物车、订单<br />
+• 移动端 ReactNative；
+• Web 管理后台使用 React<br />
+• Web 后台 React、小程序 uni-app<br />
+职责：<br />
+• 负责项目开发及维护</p>
+  </li>
   <li>
     <p><strong>2019/02—至今  Safety Media Screen-埃森哲</strong><br />
 项目简介：<br />
