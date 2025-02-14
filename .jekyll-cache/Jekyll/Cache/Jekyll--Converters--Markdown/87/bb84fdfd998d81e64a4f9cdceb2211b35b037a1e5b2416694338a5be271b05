@@ -1,8 +1,8 @@
-I"s<ul>
-  <li>WeChat : 15040497030</li>
-  <li>Email : <a href="mailto:ngliaxl@gmail.com">ngliaxl@gmail.com</a></li>
-  <li>Blog : <a href="https://ngliaxl.github.io">ngliaxl.github.io</a></li>
-  <li>Github : <a href="https://github.com/ngLiaXL">github.com/ngliaxl</a></li>
+I"�<ul>
+  <li>联系电话 : 15040497030</li>
+  <li>联系邮箱 : <a href="mailto:ngliaxl@gmail.com">ngliaxl@gmail.com</a>
+<!-- - 	Blog : [ngliaxl.github.io](https://ngliaxl.github.io) -->
+<!-- - 	Github : [github.com/ngliaxl](https://github.com/ngLiaXL) --></li>
 </ul>
 
 <h3 id="个人经历">个人经历</h3>
@@ -27,18 +27,14 @@
     <p><strong>2011/08—2013/08  大连市世纪鲲鹏科技有限公司  移动研发部</strong><br />
 负责手机管家App杀毒、私密模块产品研发</p>
   </li>
-  <li>
-    <p><strong>2008/07—2011/08  辽宁警校</strong><br />
-软件技术</p>
-  </li>
 </ul>
 
 <h3 id="专业技能">专业技能</h3>
 <ul>
-  <li>8年Android开发经验</li>
-  <li>1年KJava开发经验</li>
-  <li>熟悉常见的Android应用开发框架</li>
-  <li>熟悉Android各版本API</li>
+  <li>开发语言：精通 Java、Kotlin 用于 Android 开发，熟练掌握 JavaScript 进行前端与小程序开发，熟悉 Objective - C 用于 iOS 开发辅助。</li>
+  <li>开发框架：擅长 React Native 进行跨平台开发，熟练运用 Vue、React 开发前端应用。</li>
+  <li>移动开发：以 Android 开发为主，具备丰富的项目经验；熟悉 iOS 开发流程，能协助完成开发任务；精通小程序开发，实现多种功能与交互效果。</li>
+  <li>Web 开发：熟练掌握 HTML、CSS 进行前端页面布局，具备后端开发能力，可进行简单接口开发。</li>
 </ul>
 
 <h3 id="项目经验">项目经验</h3>
@@ -64,7 +60,7 @@
 • 负责项目开发及维护</p>
   </li>
   <li>
-    <p><strong>2019/02—至今  Safety Media Screen-埃森哲</strong><br />
+    <p><strong>2019/02—2020/9  Safety Media Screen-埃森哲</strong><br />
 项目简介：<br />
 • 电梯安全屏项目，功能包括广告播放、音视频对讲、摄像头电梯大屏通讯<br />
 • 数据库Room、网络Retrofit、消息AWS IoT、音视频阿里云RTC、局域网通讯WebSocket<br />
